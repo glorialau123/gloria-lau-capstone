@@ -42,6 +42,9 @@ function App() {
           </div>
         </div>
       </section>
+      <footer className="footer">
+        <p className="footer__text">Created by Gloria Lau Mar 2024</p>
+      </footer>
       {/* <BrowserRouter>
         <Header />
         <Routes>
@@ -50,7 +53,6 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter> */}
-      Testing
     </div>
   );
 }

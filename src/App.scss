@@ -1,6 +1,70 @@
+@use "../src/styles/partials/mixins" as *;
+@use "../src/styles/partials/typography" as *;
+@use "../src/styles/partials/variables" as *;
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background-color: rgb(236, 114, 33);
+}
+
+body {
+  background-color: rgb(255, 210, 111);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(252, 190, 22, 0.72);
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__logo {
+    padding: 0 0 1rem;
+  }
+  &__title {
+    @include mobile-page-header-text;
+  }
+  &__name {
+    @include mobile-subheader-text;
+  }
+}
+
+.selections {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  &__title-container {
+    margin: 0 0 2rem;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__topic {
+    border-radius: 50px;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.75rem;
+    margin: 0 0 1rem;
+    &--1 {
+      background-color: orangered;
+    }
+    &--2 {
+      background-color: rgb(42, 0, 0);
+    }
+    &--3 {
+      background-color: rgb(185, 95, 5);
+    }
+  }
+
+  &__subtitle {
+    color: $topic-font-color;
+  }
 }

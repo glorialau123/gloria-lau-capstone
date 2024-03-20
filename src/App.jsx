@@ -2,7 +2,7 @@ import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import HomePage from "./pages/HomePage/HomePage";
+import SelectionsPage from "./pages/SelectionsPage/SelectionsPage";
 import { Link } from "react-router-dom";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<SelectionsPage />} />
           <Route />
         </Routes>
         <Footer />

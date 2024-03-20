@@ -17,6 +17,11 @@
   @include desktop {
     padding: 1rem 5rem;
   }
+  &__home-link {
+    text-decoration: none;
+    color: black;
+  }
+
   &__logo {
     padding: 0 0 1rem;
     @include tablet {

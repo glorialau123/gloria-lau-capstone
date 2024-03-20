@@ -24,10 +24,19 @@
       width: 35%;
     }
   }
+  &__image {
+    width: 18rem;
+  }
 
   &__title {
     text-align: center;
     color: orangered;
+  }
+  &__title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   &__topics {
     @include tablet {

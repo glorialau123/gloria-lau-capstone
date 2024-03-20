@@ -1,11 +1,17 @@
-import "./HomePage.scss";
+import "./SelectionsPage.scss";
 import { Link } from "react-router-dom";
+import chemistrymrfluff from "../../assets/images/chemistry-mrfluff.png";
 
-function HomePage() {
+function SelectionsPage() {
   return (
     <section className="selections">
       <div className="selections__title-container">
         <h1 className="selections__title">Science 10 Chemistry with Mr. Fluff</h1>
+        <img
+          src={chemistrymrfluff}
+          alt="cat doing chemistry"
+          className="selections__image"
+        />
       </div>
       <div className="selections__topics">
         <div className="selections__topic selections__topic--1">
@@ -32,4 +38,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default SelectionsPage;

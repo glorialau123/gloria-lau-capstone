@@ -46,13 +46,14 @@
     margin: 0 0 1rem;
     @include tablet {
       height: 12rem;
-      width: 10rem;
+      width: calc(33.33% - 2rem);
       display: flex;
       justify-content: center;
       align-items: center;
     }
     @include desktop {
-      width: 15rem;
+      height: 20rem;
+      width: calc(33.33% - 2rem);
     }
     &--1 {
       background-color: orangered;

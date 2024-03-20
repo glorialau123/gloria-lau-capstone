@@ -9,7 +9,7 @@ function Footer() {
           Freepik
         </a>
       </p>
-      <p className="footer__text">Created by Gloria Lau Mar 2024</p>
+      <p className="footer__text">Application created by Gloria Lau Mar 2024</p>
     </footer>
   );
 }

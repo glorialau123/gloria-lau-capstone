@@ -16,21 +16,29 @@
   &__title-container {
     margin: 0 0 2rem;
     @include tablet {
-      width: 25%;
       display: flex;
       align-items: center;
     }
     @include desktop {
-      width: 35%;
     }
   }
   &__image {
-    width: 18rem;
+    width: 12rem;
+    @include tablet {
+      width: 100%;
+    }
   }
 
   &__title {
+    @include mobile-page-header-text;
     text-align: center;
-    color: orangered;
+    color: black;
+    @include tablet {
+      @include tablet-page-text;
+    }
+    @include desktop {
+      @include desktop-page-text;
+    }
   }
   &__title-container {
     display: flex;
@@ -59,6 +67,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 2.5rem;
     }
     @include desktop {
       height: 20rem;
@@ -76,6 +85,13 @@
   }
 
   &__subtitle {
+    @include mobile-subheader-text;
     color: $topic-font-color;
+    @include tablet {
+      @include tablet-subheader-text;
+    }
+    @include desktop {
+      @include desktop-subheader-text;
+    }
   }
 }

@@ -49,7 +49,7 @@
 }
 
 //tablet, desktop text
-@mixin tablet-desktop-page-text {
+@mixin tablet-page-text {
   font-size: 2.063rem;
   line-height: 2.75rem;
   font-weight: 700;
@@ -61,8 +61,8 @@
   font-weight: 700;
 }
 
-@mixin tablet-desktop-subheader-text {
-  font-size: 0.875rem;
+@mixin tablet-subheader-text {
+  font-size: 1.5rem;
   line-height: 1.375rem;
   font-weight: 700;
 }
@@ -76,5 +76,19 @@
 @mixin tablet-desktop-button-label-text {
   font-size: 0.875rem;
   line-height: 1.25rem;
+  font-weight: 700;
+}
+
+//desktop
+
+@mixin desktop-page-text {
+  font-size: 2.5rem;
+  line-height: 2.75rem;
+  font-weight: 700;
+}
+
+@mixin desktop-subheader-text {
+  font-size: 2rem;
+  line-height: 2.75rem;
   font-weight: 700;
 }

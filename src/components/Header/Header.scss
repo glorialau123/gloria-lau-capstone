@@ -1,3 +1,32 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(252, 190, 22, 0.72);
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+  @include desktop {
+    padding: 1rem 5rem;
+  }
+  &__logo {
+    padding: 0 0 1rem;
+    @include tablet {
+      padding: 0;
+    }
+  }
+  &__title {
+    @include mobile-page-header-text;
+  }
+  &__name {
+    @include mobile-subheader-text;
+  }
+}

@@ -15,25 +15,43 @@ function SelectionsPage() {
         />
       </div>
       <div className="selections__topics">
-        <div className="selections__topic selections__topic--1">
-          <h2 className="selections__subtitle">Atomic Theory</h2>
-        </div>
+        <Link className="selections__topic-link" to="/topic/atomictheory">
+          <div className="selections__topic selections__topic--1">
+            <h2 className="selections__subtitle">Atomic Theory</h2>
+          </div>
+        </Link>
 
-        <div className="selections__topic selections__topic--2">
-          <h2 className="selections__subtitle">Ionic Compounds</h2>
-        </div>
-        <div className="selections__topic selections__topic--3">
-          <h2 className="selections__subtitle">Balancing Equations</h2>
-        </div>
-        <div className="selections__topic selections__topic--2">
-          <h2 className="selections__subtitle">Types of Reactions</h2>
-        </div>
-        <div className="selections__topic selections__topic--3">
-          <h2 className="selections__subtitle">Acids and Bases</h2>
-        </div>
-        <div className="selections__topic selections__topic--1">
-          <h2 className="selections__subtitle">Unit Review</h2>
-        </div>
+        <Link className="selections__topic-link" to="/topic/ionic">
+          <div className="selections__topic selections__topic--2">
+            <h2 className="selections__subtitle">Ionic Compounds</h2>
+          </div>
+        </Link>
+
+        <Link className="selections__topic-link" to="/topic/balancing">
+          <div className="selections__topic selections__topic--3">
+            <h2 className="selections__subtitle">Balancing Equations</h2>
+          </div>
+        </Link>
+
+        <Link className="selections__topic-link" to="/topic/types">
+          <div className="selections__topic selections__topic--2">
+            <h2 className="selections__subtitle">Types of Reactions</h2>
+          </div>
+        </Link>
+
+        <Link className="selections__topic-link">
+          <div className="selections__topic selections__topic--3">
+            <h2 className="selections__subtitle" to="/topic/acidbase">
+              Acids and Bases
+            </h2>
+          </div>
+        </Link>
+
+        <Link className="selections__topic-link" to="/topic/review">
+          <div className="selections__topic selections__topic--1">
+            <h2 className="selections__subtitle">Unit Review</h2>
+          </div>
+        </Link>
       </div>
     </section>
   );

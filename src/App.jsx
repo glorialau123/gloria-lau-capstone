@@ -12,7 +12,6 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<SelectionsPage />} />
-          <Route />
         </Routes>
         <Footer />
       </BrowserRouter>

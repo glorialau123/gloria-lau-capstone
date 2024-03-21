@@ -1,16 +1,16 @@
 import "./Header.scss";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/logos/paw-print.svg";
 
 function Header() {
   return (
     <header className="header">
-      <Link className="header__home-link">
+      <NavLink className="header__home-link" to="/">
         <div className="header__logo-container">
           <img src={logo} alt="paw print" className="header__logo" />
           <h1 className="header__title">SCIENCE WITH MR.FLUFF</h1>
         </div>
-      </Link>
+      </NavLink>
 
       <div className="header__login">
         <h1 className="header__name">Welcome User</h1>

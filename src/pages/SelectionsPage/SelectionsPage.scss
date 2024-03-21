@@ -54,16 +54,25 @@
       align-items: center;
     }
   }
-
+  &__topic-link {
+    text-decoration: none;
+    @include tablet {
+      width: calc(33.33% - 2rem);
+    }
+  }
   &__topic {
+    width: 100%;
     border-radius: 50px;
     text-align: center;
     padding: 1rem;
     font-size: 0.75rem;
     margin: 0 0 1rem;
+    &:hover {
+      transform: scale(1.2);
+    }
     @include tablet {
       height: 12rem;
-      width: calc(33.33% - 2rem);
+
       display: flex;
       justify-content: center;
       align-items: center;
@@ -71,7 +80,6 @@
     }
     @include desktop {
       height: 20rem;
-      width: calc(33.33% - 2rem);
     }
     &--1 {
       background-color: orangered;

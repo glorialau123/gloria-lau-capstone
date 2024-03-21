@@ -7,6 +7,7 @@ function SelectionsPage() {
     <section className="selections">
       <div className="selections__title-container">
         <h1 className="selections__title">Science 10 Chemistry with Mr. Fluff</h1>
+
         <img
           src={chemistrymrfluff}
           alt="cat doing chemistry"

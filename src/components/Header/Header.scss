@@ -20,16 +20,29 @@
   &__home-link {
     text-decoration: none;
     color: orangered;
-  }
-
-  &__logo {
-    padding: 0 0 1rem;
-    @include tablet {
-      padding: 0;
+    &:hover {
+      transform: scale(1.2);
     }
   }
+
+  &__logo-container {
+    padding: 0 0 1rem;
+    display: flex;
+    justify-content: center;
+    @include tablet {
+      padding: 0;
+      justify-content: flex-start;
+    }
+  }
+  &__logo {
+    width: 2rem;
+  }
+
   &__title {
-    @include mobile-page-header-text;
+    font-size: 1.25rem;
+    line-height: 2rem;
+    font-weight: 700;
+    margin: 0 0 0 1rem;
   }
   &__name {
     @include mobile-subheader-text;

@@ -3,12 +3,12 @@
 @use "../../styles/partials/variables" as *;
 
 .selections {
-  padding: 1rem;
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   @include tablet {
     flex-direction: row;
-    padding: 1rem 2rem;
+    padding: 4rem 2rem;
   }
   @include desktop {
     padding: 4rem 5rem;
@@ -89,6 +89,7 @@
     color: $topic-font-color;
     @include tablet {
       @include tablet-subheader-text;
+      line-height: 2rem;
     }
     @include desktop {
       @include desktop-subheader-text;

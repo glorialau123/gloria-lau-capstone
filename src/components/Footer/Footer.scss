@@ -3,6 +3,7 @@
 @use "../../styles/partials/variables" as *;
 
 .footer {
+  padding: 0 0 2rem;
   &__text {
     text-align: center;
   }

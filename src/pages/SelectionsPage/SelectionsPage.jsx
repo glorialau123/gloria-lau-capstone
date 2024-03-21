@@ -39,11 +39,9 @@ function SelectionsPage() {
           </div>
         </Link>
 
-        <Link className="selections__topic-link">
+        <Link className="selections__topic-link" to="/topic/comingsoon">
           <div className="selections__topic selections__topic--3">
-            <h2 className="selections__subtitle" to="/topic/comingsoon">
-              Acids and Bases
-            </h2>
+            <h2 className="selections__subtitle">Acids and Bases</h2>
           </div>
         </Link>
 

@@ -15,25 +15,25 @@ function SelectionsPage() {
         />
       </div>
       <div className="selections__topics">
-        <Link className="selections__topic-link" to="/topic/atomictheory">
+        <Link className="selections__topic-link" to="/topic/comingsoon">
           <div className="selections__topic selections__topic--1">
             <h2 className="selections__subtitle">Atomic Theory</h2>
           </div>
         </Link>
 
-        <Link className="selections__topic-link" to="/topic/ionic">
+        <Link className="selections__topic-link" to="/topic/comingsoon">
           <div className="selections__topic selections__topic--2">
             <h2 className="selections__subtitle">Ionic Compounds</h2>
           </div>
         </Link>
 
-        <Link className="selections__topic-link" to="/topic/balancing">
+        <Link className="selections__topic-link" to="/topic/comingsoon">
           <div className="selections__topic selections__topic--3">
             <h2 className="selections__subtitle">Balancing Equations</h2>
           </div>
         </Link>
 
-        <Link className="selections__topic-link" to="/topic/types">
+        <Link className="selections__topic-link" to="/topic/comingsoon">
           <div className="selections__topic selections__topic--2">
             <h2 className="selections__subtitle">Types of Reactions</h2>
           </div>
@@ -41,7 +41,7 @@ function SelectionsPage() {
 
         <Link className="selections__topic-link">
           <div className="selections__topic selections__topic--3">
-            <h2 className="selections__subtitle" to="/topic/acidbase">
+            <h2 className="selections__subtitle" to="/topic/comingsoon">
               Acids and Bases
             </h2>
           </div>

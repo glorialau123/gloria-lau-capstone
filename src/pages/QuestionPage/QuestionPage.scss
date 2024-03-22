@@ -1,0 +1,63 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.question-pg {
+  padding: 1rem;
+  &__main {
+    display: flex;
+    flex-direction: column;
+  }
+  &__topic {
+    margin: 0 0 1rem;
+  }
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 1rem;
+  }
+
+  &__current-score {
+    text-align: right;
+  }
+  &__question-container {
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 0 0 2rem;
+    border: 2px dashed orange;
+  }
+
+  &__options-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 1rem;
+  }
+  &__option {
+    background-color: rgb(249, 242, 195);
+    width: 100%;
+    border-radius: 50px;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.75rem;
+    margin: 0 0 1rem;
+    &:hover {
+      border: 1px solid black;
+    }
+  }
+  &__buttons-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  &__button {
+    padding: 0.5rem;
+    width: 5rem;
+    font-family: "Red Hat Text", Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
+    border: none;
+    background-color: orange;
+    &--left {
+      margin: 0 0.5rem 0 0;
+    }
+  }
+}

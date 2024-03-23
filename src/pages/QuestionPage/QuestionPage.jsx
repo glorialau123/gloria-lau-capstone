@@ -1,5 +1,6 @@
 import "./QuestionPage.scss";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 function QuestionPage() {
   const params = useParams();

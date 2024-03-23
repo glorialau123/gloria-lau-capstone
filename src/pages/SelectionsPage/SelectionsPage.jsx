@@ -45,7 +45,7 @@ function SelectionsPage() {
           </div>
         </Link>
 
-        <Link className="selections__topic-link" to="/topic/review/:id">
+        <Link className="selections__topic-link" to="/topic/review/1">
           <div className="selections__topic selections__topic--1">
             <h2 className="selections__subtitle">Unit Review</h2>
           </div>

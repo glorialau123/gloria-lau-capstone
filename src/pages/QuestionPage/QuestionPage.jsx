@@ -30,17 +30,26 @@ function QuestionPage() {
   //handle next question and change URL
   const navigate = useNavigate();
 
+  function handlePreviousQuestion() {
+    if (selectedQuestion.id <= 10) {
+      const newQuestionId = questionId - 1;
+      console.log(newQuestionId);
+      navigate(`/topic/review/${newQuestionId}`);
+    }
+  }
+
   function handleNextQuestion() {
     if (selectedQuestion.id >= 1 && selectedQuestion.id < 10) {
       const newQuestionId = questionId + 1;
       console.log(newQuestionId);
       navigate(`/topic/review/${newQuestionId}`);
     } else {
-      navigate(`/topic/review/1`);
+      navigate(`/topic/review/1`); //need to handle logic for last page - which includes passing the final score from the counting score functionality to be added
     }
   }
 
   return (
+    // change to components afterwards
     <section className="question-pg">
       <div className="question-pg__main">
         <h1 className="question-pg__topic">Unit Review</h1>
@@ -87,9 +96,17 @@ function QuestionPage() {
           </div>
         </div>
         <div className="question-pg__buttons-container">
-          <button className="question-pg__button question-pg__button--left">
-            Previous
-          </button>
+          {selectedQuestion.id > 1 ? (
+            <button
+              className="question-pg__button question-pg__button--left"
+              onClick={handlePreviousQuestion}
+            >
+              Previous
+            </button>
+          ) : (
+            ""
+          )}
+
           <button className="question-pg__button" onClick={handleNextQuestion}>
             Next
           </button>

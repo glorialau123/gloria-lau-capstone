@@ -8,9 +8,10 @@ const { REACT_APP_BACKEND_URL } = process.env;
 function QuestionPage() {
   const params = useParams();
   let questionId = parseInt(params.id);
-  console.log(questionId);
-
   const [selectedQuestion, setSelectedQuestion] = useState({});
+
+  //implement right/wrong logic
+  const [selectedOption, setSelectedOption] = useState(null);
 
   useEffect(() => {
     const getSingleQuestion = async function () {
@@ -20,6 +21,7 @@ function QuestionPage() {
         );
         console.log(response.data);
         setSelectedQuestion(response.data);
+        setSelectedOption(null);
       } catch (error) {
         console.error(error);
       }
@@ -35,6 +37,7 @@ function QuestionPage() {
       const newQuestionId = questionId - 1;
       console.log(newQuestionId);
       navigate(`/topic/review/${newQuestionId}`);
+      setSelectedOption(null);
     }
   }
 
@@ -43,8 +46,24 @@ function QuestionPage() {
       const newQuestionId = questionId + 1;
       console.log(newQuestionId);
       navigate(`/topic/review/${newQuestionId}`);
+      setSelectedOption(null);
     } else {
       navigate(`/topic/review/1`); //need to handle logic for last page - which includes passing the final score from the counting score functionality to be added
+      setSelectedOption(null);
+    }
+  }
+
+  function handleAnswerClick() {
+    console.log("I am clicked");
+    console.log(selectedQuestion.options[1].isCorrect);
+    if (selectedQuestion.options[1].isCorrect) {
+      console.log("(in if part) this is correct");
+      setSelectedOption(true);
+      console.log(selectedOption);
+    } else {
+      console.log("this is wrong");
+      setSelectedOption(false);
+      console.log("(in else part) correct answer?", selectedOption);
     }
   }
 
@@ -73,7 +92,19 @@ function QuestionPage() {
             {selectedQuestion &&
               selectedQuestion.options &&
               selectedQuestion.options[1] && (
-                <div className="question-pg__option">
+                <div
+                  // if the first condition is evaluated to be false, then the second condition "selectedOption!==null && selectedQuestion.options[1].isCorrect === false" is evaulated
+                  className={`question-pg__option ${
+                    selectedOption !== null &&
+                    selectedQuestion.options[1].isCorrect === true
+                      ? "question-pg__option--correct"
+                      : selectedOption !== null &&
+                        selectedQuestion.options[1].isCorrect === false
+                      ? "question-pg__option--wrong"
+                      : ""
+                  }`}
+                  onClick={handleAnswerClick}
+                >
                   {selectedQuestion.options[1].text}
                 </div>
               )}

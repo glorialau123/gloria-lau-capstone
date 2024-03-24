@@ -43,7 +43,14 @@
     font-size: 0.75rem;
     margin: 0 0 1rem;
     &:hover {
-      border: 1px solid black;
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+    &--correct {
+      border: 2px solid rgb(22, 212, 22);
+    }
+    &--wrong {
+      border: 2px solid red;
     }
   }
   &__buttons-container {
@@ -58,6 +65,10 @@
     border-radius: 10px;
     border: none;
     background-color: orange;
+    &:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
     &--left {
       margin: 0 0.5rem 0 0;
     }

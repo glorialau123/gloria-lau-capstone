@@ -92,7 +92,7 @@ function QuestionPage() {
         </div>
         <div className="question-pg__options-container">
           {/* options: if the first condition is evaluated to be false, then the second condition "selectedOption!==null && selectedQuestion.options[1].isCorrect === false" is evaluated */}
-          {selectedQuestion.options.map((option) => {
+          {selectedQuestion?.options?.map((option) => {
             return (
               <div
                 className={`question-pg__option ${

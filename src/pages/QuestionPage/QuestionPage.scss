@@ -4,6 +4,12 @@
 
 .question-pg {
   padding: 1rem;
+  @include tablet {
+    padding: 1rem 2rem;
+  }
+  @include desktop {
+    padding: 1rem 5rem;
+  }
   &__main {
     display: flex;
     flex-direction: column;
@@ -19,9 +25,18 @@
     justify-content: space-between;
     margin: 0 0 1rem;
   }
-
+  &__number {
+    font-size: 1rem;
+    @include tablet {
+      font-size: 1.25rem;
+    }
+  }
   &__current-score {
     text-align: right;
+    font-size: 1rem;
+    @include tablet {
+      font-size: 1.25rem;
+    }
   }
   &__question-container {
     padding: 1rem;
@@ -31,6 +46,11 @@
   }
   &__question {
     text-align: center;
+    @include mobile-subheader-text;
+    @include tablet {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
   }
   &__options-container {
     display: flex;
@@ -43,8 +63,11 @@
     border-radius: 50px;
     text-align: center;
     padding: 1rem;
-    font-size: 0.75rem;
+    font-size: 1rem;
     margin: 0 0 1rem;
+    @include tablet {
+      font-size: 1.5rem;
+    }
     &:hover {
       transform: scale(1.2);
       cursor: pointer;
@@ -68,6 +91,10 @@
     border-radius: 10px;
     border: none;
     background-color: orange;
+    @include mobile-label-button-text;
+    @include tablet {
+      @include tablet-desktop-button-label-text;
+    }
     &:hover {
       transform: scale(1.2);
       cursor: pointer;

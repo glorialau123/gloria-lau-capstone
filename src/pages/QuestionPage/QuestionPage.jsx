@@ -10,6 +10,7 @@ function QuestionPage() {
   let questionId = parseInt(params.id);
   const [selectedQuestion, setSelectedQuestion] = useState({});
   const [correctQuestions, setCorrectQuestions] = useState(0);
+  const [questionStatus, setQuestionStatus] = useState({}); // need to set a question status to remember if the question has been answered already
 
   //implement right/wrong logic
   const [selectedOption, setSelectedOption] = useState(null);
@@ -55,21 +56,24 @@ function QuestionPage() {
   }
 
   //handle click on an option/answer
-  function handleAnswerClick() {
+  function handleAnswerClick(option) {
     console.log("I am clicked");
-    console.log(selectedQuestion.options[1].isCorrect);
-    if (selectedQuestion.options[1].isCorrect) {
+    if (option.isCorrect === true && !questionStatus[questionId]) {
       console.log("(in if part) this is correct");
       setSelectedOption(true);
-      console.log(selectedOption);
-      //need to track if question has been answered already. If answered, the count shouldn't increase again.
+      //need to track if question has been answered already. If answered, the count shouldn't increase again. Use questionId as key in questionStatus object.
+      setQuestionStatus((previousStatus) => ({ ...previousStatus, [questionId]: true }));
       setCorrectQuestions((prevCorrectQuestions) => prevCorrectQuestions + 1);
-
-      console.log("number of correctQuestions", correctQuestions);
-    } else {
-      console.log("this is wrong");
+      // } else {
+      //   console.log("this is wrong");
+      //   setSelectedOption(false);
+      //   console.log("(in else part) correct answer?", selectedOption);
+      // }
+    }
+    if (option.isCorrect === false && !questionStatus[questionId]) {
+      setQuestionStatus((previousStatus) => ({ ...previousStatus, [questionId]: true }));
       setSelectedOption(false);
-      console.log("(in else part) correct answer?", selectedOption);
+      console.log("this is wrong");
     }
   }
 
@@ -95,14 +99,21 @@ function QuestionPage() {
           {selectedQuestion?.options?.map((option) => {
             return (
               <div
+                key={option.id}
                 className={`question-pg__option ${
                   selectedOption !== null && option.isCorrect === true
                     ? "question-pg__option--correct"
                     : selectedOption !== null && option.isCorrect === false
                     ? "question-pg__option--wrong"
+                    : questionStatus[selectedQuestion.id] && option.isCorrect === true
+                    ? "question-pg__option--correct"
+                    : questionStatus[selectedQuestion.id] && option.isCorrect === false
+                    ? "question-pg__option--wrong"
                     : ""
                 }`}
-                onClick={handleAnswerClick}
+                onClick={() => {
+                  handleAnswerClick(option);
+                }}
               >
                 {option.text}
               </div>
@@ -126,6 +137,7 @@ function QuestionPage() {
           </button>
         </div>
       </div>
+      {/* need new div here for chatbot - click to toggle and display?; need to do "flex", "column" on section div */}
     </section>
   );
 }

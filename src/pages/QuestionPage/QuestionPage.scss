@@ -1,0 +1,106 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.question-pg {
+  padding: 1rem;
+  @include tablet {
+    padding: 1rem 2rem;
+  }
+  @include desktop {
+    padding: 1rem 5rem;
+  }
+  &__main {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      width: 50%;
+    }
+  }
+  &__topic {
+    margin: 0 0 1rem;
+  }
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 1rem;
+  }
+  &__number {
+    font-size: 1rem;
+    @include tablet {
+      font-size: 1.25rem;
+    }
+  }
+  &__current-score {
+    text-align: right;
+    font-size: 1rem;
+    @include tablet {
+      font-size: 1.25rem;
+    }
+  }
+  &__question-container {
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 0 0 2rem;
+    border: 2px dashed orange;
+  }
+  &__question {
+    text-align: center;
+    @include mobile-subheader-text;
+    @include tablet {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
+  }
+  &__options-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 1rem;
+  }
+  &__option {
+    background-color: rgb(249, 242, 195);
+    width: 100%;
+    border-radius: 50px;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1rem;
+    margin: 0 0 1rem;
+    @include tablet {
+      font-size: 1.5rem;
+    }
+    &:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+    &--correct {
+      border: 2px solid rgb(22, 212, 22);
+    }
+    &--wrong {
+      border: 2px solid red;
+    }
+  }
+  &__buttons-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  &__button {
+    padding: 0.5rem;
+    width: 5rem;
+    font-family: "Red Hat Text", Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
+    border: none;
+    background-color: orange;
+    @include mobile-label-button-text;
+    @include tablet {
+      @include tablet-desktop-button-label-text;
+    }
+    &:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+    &--left {
+      margin: 0 0.5rem 0 0;
+    }
+  }
+}

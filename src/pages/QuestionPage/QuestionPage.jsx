@@ -51,9 +51,9 @@ function QuestionPage() {
       navigate(`/topic/review/${newQuestionId}`);
       setSelectedOption(null);
       setIsOptionSelected(questionStatus[newQuestionId] === true);
-    } else {
-      navigate(`/topic/review/1`); //need to handle logic for last page - which includes passing the final score from the counting score functionality to be added
-      setSelectedOption(null);
+    }
+    if (questionId === 10) {
+      navigate(`/topic/review/score`, { state: { correctQuestions: correctQuestions } });
     }
   }
 

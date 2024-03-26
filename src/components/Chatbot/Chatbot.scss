@@ -1,0 +1,82 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.chatbot {
+  width: 100%;
+  @include tablet {
+    width: 50%;
+    padding: 0 0 0 2rem;
+    display: flex;
+    align-items: flex-end;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__messages {
+    width: 100%;
+    height: 5rem;
+    margin: 1rem 0;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    @include mobile-subheader-text;
+    @include tablet {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+      height: 12.5rem;
+      @include desktop {
+        height: 14rem;
+      }
+    }
+  }
+  &__image {
+    padding: 2rem 0;
+    width: 8rem;
+  }
+  &__input {
+    width: 100%;
+    margin: 0 0 1rem;
+    border: none;
+    border-radius: 10px;
+    height: 3rem;
+    padding: 1rem;
+    background-color: rgb(219, 219, 219);
+    &::focus {
+      border: 1px solid orangered;
+      background-color: white;
+    }
+  }
+  &__button-container {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  &__button {
+    padding: 0.5rem;
+    width: 5rem;
+    font-family: "Red Hat Text", Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
+    border: none;
+    background-color: orange;
+    @include mobile-label-button-text;
+    @include tablet {
+      @include tablet-desktop-button-label-text;
+    }
+    &:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+  }
+}

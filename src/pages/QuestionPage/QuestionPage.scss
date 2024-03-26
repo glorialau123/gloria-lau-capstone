@@ -4,8 +4,11 @@
 
 .question-pg {
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
   @include tablet {
     padding: 1rem 2rem;
+    flex-direction: row;
   }
   @include desktop {
     padding: 1rem 5rem;

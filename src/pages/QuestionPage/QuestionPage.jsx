@@ -2,6 +2,7 @@ import "./QuestionPage.scss";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Chatbot from "../../components/Chatbot/Chatbot";
 
 const { REACT_APP_BACKEND_URL } = process.env;
 
@@ -144,7 +145,9 @@ function QuestionPage() {
           </button>
         </div>
       </div>
-      {/* need new div here for chatbot - click to toggle and display?; need to do "flex", "column" on section div */}
+      {/* need new div here for chatbot - click to toggle and display?; need to do "flex", "column" on section div for mobile */}
+      {/* need toggle functionality; modal?? */}
+      <Chatbot />
     </section>
   );
 }

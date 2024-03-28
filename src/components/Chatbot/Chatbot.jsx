@@ -5,8 +5,12 @@ import { useState, useEffect } from "react";
 
 const { REACT_APP_BACKEND_URL } = process.env;
 
-function Chatbot() {
+function Chatbot(props) {
   const [userInput, setUserInput] = useState(null);
+  const [message, setMessage] = useState(null);
+  const [previousChats, setPreviousChats] = useState([]);
+  const { newChat, setNewChat } = props;
+
   const getMessages = async (event) => {
     event.preventDefault();
     try {
@@ -17,21 +21,38 @@ function Chatbot() {
       const chatbotResponse = await axios.post(`${REACT_APP_BACKEND_URL}/message`, {
         threadId: retrievedThreadId,
         message: userInput,
-        // });
       });
-      const singleMessages = chatbotResponse.data.conversation.map((msg) => msg);
-      console.log(singleMessages);
+      // const singleMessages = chatbotResponse.data.conversation.map((msg) => msg);
+      // console.log(singleMessages);
+
+      setMessage(chatbotResponse.data.conversation.reverse());
+      console.log(message);
     } catch (error) {
       console.log(error);
     }
   };
 
-  console.log(userInput);
+  //console.log(userInput);
+
+  //set previous messages
+  // useEffect(() => {
+  //   console.log(newChat, userInput, message);
+  //   if (userInput && message) {
+  //     setPreviousChats((prevChats) => ({ ...prevChats, message }));
+  //   }
+  // }, [newChat]);
+  // console.log(previousChats);
 
   return (
     <section className="chatbot">
       <form className="chatbot__form" onSubmit={getMessages}>
-        <div className="chatbot__messages">Chat messages displayed here</div>
+        <ul className="chatbot__messages">
+          {message?.map((chatMessage, index) => (
+            <li className="chatbot__message-item" key={index}>
+              {chatMessage}
+            </li>
+          ))}
+        </ul>
         <input
           type="text"
           className="chatbot__input"

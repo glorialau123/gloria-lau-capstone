@@ -7,6 +7,7 @@ import Chatbot from "../../components/Chatbot/Chatbot";
 const { REACT_APP_BACKEND_URL } = process.env;
 
 function QuestionPage() {
+  const [newChat, setNewChat] = useState([]);
   const params = useParams();
   let questionId = parseInt(params.id); //use for navigation and URL
   const [selectedQuestion, setSelectedQuestion] = useState({});
@@ -25,6 +26,7 @@ function QuestionPage() {
         );
         console.log(response.data);
         setSelectedQuestion(response.data);
+        setNewChat(response.data);
         setSelectedOption(null);
       } catch (error) {
         console.error(error);
@@ -147,7 +149,7 @@ function QuestionPage() {
       </div>
       {/* need new div here for chatbot - click to toggle and display?; need to do "flex", "column" on section div for mobile */}
       {/* need toggle functionality; modal?? */}
-      <Chatbot />
+      <Chatbot newChat={newChat} setNewChat={setNewChat} />
     </section>
   );
 }

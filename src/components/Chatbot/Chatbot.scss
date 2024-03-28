@@ -10,7 +10,7 @@
     display: flex;
     align-items: flex-end;
   }
-  &__container {
+  &__form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,9 +29,10 @@
     @include tablet {
       font-size: 1.5rem;
       line-height: 1.5rem;
-      height: 12.5rem;
+      height: 14.5rem;
       @include desktop {
         height: 14rem;
+        margin-top: 5.5rem;
       }
     }
   }

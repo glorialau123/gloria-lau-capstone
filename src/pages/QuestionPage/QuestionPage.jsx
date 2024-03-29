@@ -11,6 +11,7 @@ function QuestionPage() {
   const [newChat, setNewChat] = useState([]);
   const [retrievedThreadId, setRetrievedThreadId] = useState("");
 
+  //to use for question/answer section
   const params = useParams();
   let questionId = parseInt(params.id); //use for navigation and URL
   const [selectedQuestion, setSelectedQuestion] = useState({});
@@ -166,12 +167,7 @@ function QuestionPage() {
       </div>
       {/* need new div here for chatbot - click to toggle and display?; need to do "flex", "column" on section div for mobile */}
       {/* need toggle functionality; modal?? */}
-      <Chatbot
-        newChat={newChat}
-        setNewChat={setNewChat}
-        retrievedThreadId={retrievedThreadId}
-        setRetrievedThreadId={setRetrievedThreadId}
-      />
+      <Chatbot newChat={newChat} retrievedThreadId={retrievedThreadId} />
     </section>
   );
 }

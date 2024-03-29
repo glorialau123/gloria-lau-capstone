@@ -7,7 +7,10 @@ import Chatbot from "../../components/Chatbot/Chatbot";
 const { REACT_APP_BACKEND_URL } = process.env;
 
 function QuestionPage() {
+  //state variables to pass down to chatbot:
   const [newChat, setNewChat] = useState([]);
+  const [retrievedThreadId, setRetrievedThreadId] = useState("");
+
   const params = useParams();
   let questionId = parseInt(params.id); //use for navigation and URL
   const [selectedQuestion, setSelectedQuestion] = useState({});
@@ -33,6 +36,20 @@ function QuestionPage() {
       }
     };
     getSingleQuestion();
+  }, [questionId]);
+
+  //get thread id and pass to chatbot component
+  useEffect(() => {
+    const getThread = async function () {
+      try {
+        const getThreadResponse = await axios.get(`${REACT_APP_BACKEND_URL}/thread`);
+        setRetrievedThreadId(getThreadResponse.data.threadId);
+        console.log(retrievedThreadId);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getThread();
   }, [questionId]);
 
   //handle next question and change URL
@@ -149,7 +166,12 @@ function QuestionPage() {
       </div>
       {/* need new div here for chatbot - click to toggle and display?; need to do "flex", "column" on section div for mobile */}
       {/* need toggle functionality; modal?? */}
-      <Chatbot newChat={newChat} setNewChat={setNewChat} />
+      <Chatbot
+        newChat={newChat}
+        setNewChat={setNewChat}
+        retrievedThreadId={retrievedThreadId}
+        setRetrievedThreadId={setRetrievedThreadId}
+      />
     </section>
   );
 }

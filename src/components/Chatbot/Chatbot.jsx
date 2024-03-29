@@ -8,15 +8,15 @@ const { REACT_APP_BACKEND_URL } = process.env;
 function Chatbot(props) {
   const [userInput, setUserInput] = useState(null);
   const [message, setMessage] = useState(null);
-  const [previousChats, setPreviousChats] = useState([]);
-  const { newChat, setNewChat } = props;
+  // const [previousChats, setPreviousChats] = useState([]);
+  const { newChat, setNewChat, retrievedThreadId, setRetrievedThreadId } = props;
 
   const getMessages = async (event) => {
     event.preventDefault();
     try {
-      const getThreadResponse = await axios.get(`${REACT_APP_BACKEND_URL}/thread`);
-      const retrievedThreadId = getThreadResponse.data.threadId;
-      console.log(retrievedThreadId);
+      // const getThreadResponse = await axios.get(`${REACT_APP_BACKEND_URL}/thread`);
+      // const retrievedThreadId = getThreadResponse.data.threadId;
+      // console.log(retrievedThreadId);
 
       const chatbotResponse = await axios.post(`${REACT_APP_BACKEND_URL}/message`, {
         threadId: retrievedThreadId,

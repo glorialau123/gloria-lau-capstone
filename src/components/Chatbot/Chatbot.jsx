@@ -17,14 +17,32 @@ function Chatbot(props) {
       // const getThreadResponse = await axios.get(`${REACT_APP_BACKEND_URL}/thread`);
       // const retrievedThreadId = getThreadResponse.data.threadId;
       // console.log(retrievedThreadId);
+      if (!message) {
+        const chatbotResponse = await axios.post(`${REACT_APP_BACKEND_URL}/message`, {
+          threadId: retrievedThreadId,
+          message: newChat.text,
+        });
+        setMessage(chatbotResponse.data.conversation.reverse());
+        console.log(message);
+      } else if (userInput) {
+        const chatbotResponse = await axios.post(`${REACT_APP_BACKEND_URL}/message`, {
+          threadId: retrievedThreadId,
+          message: userInput,
+        });
 
-      const chatbotResponse = await axios.post(`${REACT_APP_BACKEND_URL}/message`, {
-        threadId: retrievedThreadId,
-        message: userInput,
-      });
+        setMessage(chatbotResponse.data.conversation.reverse());
+        console.log(message);
+      } else {
+        alert("Please enter a question!");
+      }
 
-      setMessage(chatbotResponse.data.conversation.reverse());
-      console.log(message);
+      // const chatbotResponse = await axios.post(`${REACT_APP_BACKEND_URL}/message`, {
+      //   threadId: retrievedThreadId,
+      //   message: userInput,
+      // });
+
+      // setMessage(chatbotResponse.data.conversation.reverse());
+      // console.log(message);
     } catch (error) {
       console.log(error);
     }
@@ -54,7 +72,7 @@ function Chatbot(props) {
         <input
           type="text"
           className="chatbot__input"
-          placeholder="Click 'Ask' to get an explanation"
+          placeholder="Click 'Ask' to get an explanation or type a question"
           value={userInput}
           onChange={(event) => setUserInput(event.target.value)}
         />

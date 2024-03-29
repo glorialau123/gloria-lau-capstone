@@ -28,19 +28,21 @@ function Chatbot(props) {
     event.preventDefault();
     try {
       setIsLoading(true);
-      if (!message) {
+      if (!userInput) {
         let questionWithOptions = newChat.text;
         if (newChat.options) {
           questionWithOptions +=
             " Options are: " +
             newChat.options.map((option) => option.text).join(", ") +
-            " Can you explain the question and go through each option?";
+            " Can you explain the question and go through each option briefly?";
         }
         const chatbotResponse = await axios.post(`${REACT_APP_BACKEND_URL}/message`, {
           threadId: retrievedThreadId,
           message: questionWithOptions,
         });
+        //original:
         setMessage(chatbotResponse.data.conversation.reverse());
+
         console.log(message);
       } else if (userInput) {
         const chatbotResponse = await axios.post(`${REACT_APP_BACKEND_URL}/message`, {

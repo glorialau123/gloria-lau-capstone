@@ -43,6 +43,10 @@
     padding: 0 1rem 1rem;
     font-size: 1rem;
     line-height: 1.25rem;
+    @include tablet {
+      font-size: 1.5rem;
+      line-height: 1.75rem;
+    }
   }
   &__image {
     padding: 2rem 0;

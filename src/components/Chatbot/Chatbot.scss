@@ -56,6 +56,22 @@
       font-weight: bold;
     }
   }
+  &__loading {
+    padding: 2rem 0 0;
+    text-align: center;
+    @include keyframes(pulsating) {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    @include pulsate(pulsating, 0.75s, infinite);
+  }
   &__image {
     padding: 2rem 0;
     width: 8rem;
@@ -65,14 +81,14 @@
     margin: 0 0 1rem;
     border: none;
     border-radius: 10px;
-    height: 5rem;
+    height: 6rem;
     padding: 1rem 2rem;
     font-size: 1rem;
     font-family: "Red Hat Text", Verdana, Geneva, Tahoma, sans-serif;
     background-color: rgb(254, 237, 237);
     resize: none;
     &::placeholder {
-      color: black;
+      color: rgba(0, 0, 0, 0.826);
       font-weight: bold;
     }
     &:focus {
@@ -90,22 +106,36 @@
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
+    padding: 1rem 0;
     @include tablet {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      padding: 0;
     }
   }
   &__button {
     padding: 0.5rem;
-    width: 5rem;
+    width: 4rem;
+    height: 4rem;
+    font-size: 1rem;
+    font-weight: bold;
     font-family: "Red Hat Text", Verdana, Geneva, Tahoma, sans-serif;
-    border-radius: 10px;
+    border-radius: 60px;
     border: none;
     background-color: orange;
-    @include mobile-label-button-text;
+    box-shadow: 0px 0px 20px red;
+
     @include tablet {
-      @include tablet-desktop-button-label-text;
+      width: 5rem;
+      height: 5rem;
+      font-size: 1.25rem;
+      border-radius: 60px;
+    }
+    @include desktop {
+      width: 7rem;
+      height: 7rem;
+      font-size: 1.5rem;
     }
     &:hover {
       transform: scale(1.2);

@@ -94,7 +94,7 @@ function Chatbot(props) {
               </li>
             ))
           )}
-          {isLoading && <div className="chatbot__loading">Loading messages...</div>}
+          {isLoading && <p className="chatbot__loading">Loading messages...</p>}
 
           {/* // {!isLoading &&
               //   message?.map((chatMessage, index) => (
@@ -115,7 +115,7 @@ function Chatbot(props) {
         <textarea
           type="text"
           className="chatbot__input"
-          placeholder="Click 'Ask' to get an explanation or start typing a question here"
+          placeholder="Click the 'Ask' button to get an explanation or start typing a question here"
           value={userInput}
           onChange={(event) => setUserInput(event.target.value)}
         />

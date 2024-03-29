@@ -76,8 +76,11 @@ function Chatbot(props) {
     <section className="chatbot">
       <form className="chatbot__form" onSubmit={getMessages}>
         <div className="chatbot__messages">
-          {isLoading && <div className="chatbot__loading">Loading messages...</div>}
-          {!isLoading &&
+          {!message ? (
+            <div>
+              <p>Chat messages shown here</p>
+            </div>
+          ) : (
             message?.map((chatMessage, index) => (
               <li
                 className={`chatbot__message-item ${
@@ -89,10 +92,23 @@ function Chatbot(props) {
               >
                 {chatMessage}
               </li>
-              //   <li className="chatbot__message-item" key={index}>
-              //   {chatMessage}
-              // </li>
-            ))}
+            ))
+          )}
+          {isLoading && <div className="chatbot__loading">Loading messages...</div>}
+
+          {/* // {!isLoading &&
+              //   message?.map((chatMessage, index) => (
+              //     <li
+              //       className={`chatbot__message-item ${
+              //         chatMessage.includes("Mr. Fluff:")
+              //           ? "chatbot__message-item--assistant"
+              //           : ""
+              //       }`}
+              //       key={index}
+              //     >
+              //       {chatMessage}
+              //     </li>
+            ))} */}
           <div className="chatbot__ref-location" ref={goToMessageEndRef} />
         </div>
 

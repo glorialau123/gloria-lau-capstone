@@ -52,7 +52,9 @@ function QuestionPage() {
   useEffect(() => {
     const getThread = async function () {
       try {
-        const getThreadResponse = await axios.get(`${REACT_APP_BACKEND_URL}/thread`);
+        const getThreadResponse = await axios.get(
+          `${REACT_APP_BACKEND_URL}/chatbot/thread`
+        );
         setRetrievedThreadId(getThreadResponse.data.threadId);
         console.log(retrievedThreadId);
       } catch (error) {

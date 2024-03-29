@@ -22,6 +22,15 @@ function QuestionPage() {
   //implement right/wrong logic
   const [selectedOption, setSelectedOption] = useState(null);
 
+  //implement pulsing animation state for correct questions
+  const [pulseAnimation, setPulseAnimation] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPulseAnimation(false);
+    }, 2000);
+  }, [correctQuestions]);
+
   useEffect(() => {
     const getSingleQuestion = async function () {
       try {
@@ -88,6 +97,7 @@ function QuestionPage() {
       setQuestionStatus((previousStatus) => ({ ...previousStatus, [questionId]: true }));
       setIsOptionSelected(true);
       setCorrectQuestions((prevCorrectQuestions) => prevCorrectQuestions + 1);
+      setPulseAnimation(true);
     } else if (option.isCorrect === false && !questionStatus[questionId]) {
       setQuestionStatus((previousStatus) => ({ ...previousStatus, [questionId]: true }));
       setSelectedOption(false);
@@ -107,7 +117,13 @@ function QuestionPage() {
         <h1 className="question-pg__topic">Unit Review</h1>
         <div className="question-pg__heading">
           <p className="question-pg__number">Question {selectedQuestion?.id}</p>
-          <p className="question-pg__current-score">{correctQuestions}/10 correct</p>
+          <p
+            className={`question-pg__current-score ${
+              pulseAnimation ? "question-pg__current-score--animate" : ""
+            }`}
+          >
+            {correctQuestions}/10 correct
+          </p>
         </div>
 
         <div className="question-pg__question-container">

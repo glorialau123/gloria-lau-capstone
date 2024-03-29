@@ -63,6 +63,9 @@ function Chatbot(props) {
     }
   };
 
+  //test out message
+  console.log(message);
+
   return (
     <section className="chatbot">
       <form className="chatbot__form" onSubmit={getMessages}>
@@ -70,9 +73,19 @@ function Chatbot(props) {
           {isLoading && <div className="chatbot__loading">Loading messages...</div>}
           {!isLoading &&
             message?.map((chatMessage, index) => (
-              <li className="chatbot__message-item" key={index}>
+              <li
+                className={`chatbot__message-item ${
+                  chatMessage.includes("Mr. Fluff:")
+                    ? "chatbot__message-item--assistant"
+                    : ""
+                }`}
+                key={index}
+              >
                 {chatMessage}
               </li>
+              //   <li className="chatbot__message-item" key={index}>
+              //   {chatMessage}
+              // </li>
             ))}
           <div className="chatbot__ref-location" ref={goToMessageEndRef} />
         </div>
@@ -80,7 +93,7 @@ function Chatbot(props) {
         <textarea
           type="text"
           className="chatbot__input"
-          placeholder="Click 'Ask' to get an explanation or type a question here"
+          placeholder="Click 'Ask' to get an explanation or start typing a question here"
           value={userInput}
           onChange={(event) => setUserInput(event.target.value)}
         />

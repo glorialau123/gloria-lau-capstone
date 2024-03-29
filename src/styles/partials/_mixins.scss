@@ -12,6 +12,17 @@
   }
 }
 
+//mixin for pulsing animation
+@mixin pulsate($animation, $duration, $times) {
+  animation: $animation $duration $times;
+}
+
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
 // mixins for flex display
 @mixin column-flex {
   display: flex;

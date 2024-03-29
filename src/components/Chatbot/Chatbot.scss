@@ -43,9 +43,17 @@
     padding: 0 1rem 1rem;
     font-size: 1rem;
     line-height: 1.25rem;
+    white-space: pre-wrap;
     @include tablet {
-      font-size: 1.5rem;
+      font-size: 1rem;
       line-height: 1.75rem;
+    }
+    @include desktop {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+    &--assistant {
+      font-weight: bold;
     }
   }
   &__image {
@@ -58,11 +66,15 @@
     border: none;
     border-radius: 10px;
     height: 5rem;
-    padding: 1rem;
+    padding: 1rem 2rem;
     font-size: 1rem;
     font-family: "Red Hat Text", Verdana, Geneva, Tahoma, sans-serif;
-    background-color: rgb(219, 219, 219);
+    background-color: rgb(254, 237, 237);
     resize: none;
+    &::placeholder {
+      color: black;
+      font-weight: bold;
+    }
     &:focus {
       border: 1px solid orangered;
       outline: none;

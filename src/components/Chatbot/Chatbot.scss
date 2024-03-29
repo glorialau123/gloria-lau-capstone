@@ -25,7 +25,9 @@
     background-color: white;
     padding: 1rem;
     border-radius: 10px;
-    @include mobile-subheader-text;
+    overflow-y: scroll;
+
+    @include mobile-body-text;
     @include tablet {
       font-size: 1.5rem;
       line-height: 1.5rem;
@@ -35,6 +37,10 @@
         margin-top: 5.5rem;
       }
     }
+  }
+  &__message-item {
+    list-style: none;
+    padding: 0 1rem 1rem;
   }
   &__image {
     padding: 2rem 0;

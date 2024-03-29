@@ -22,8 +22,6 @@ function Chatbot(props) {
         threadId: retrievedThreadId,
         message: userInput,
       });
-      // const singleMessages = chatbotResponse.data.conversation.map((msg) => msg);
-      // console.log(singleMessages);
 
       setMessage(chatbotResponse.data.conversation.reverse());
       console.log(message);
@@ -46,17 +44,17 @@ function Chatbot(props) {
   return (
     <section className="chatbot">
       <form className="chatbot__form" onSubmit={getMessages}>
-        <ul className="chatbot__messages">
+        <div className="chatbot__messages">
           {message?.map((chatMessage, index) => (
             <li className="chatbot__message-item" key={index}>
               {chatMessage}
             </li>
           ))}
-        </ul>
+        </div>
         <input
           type="text"
           className="chatbot__input"
-          placeholder="Type your question here"
+          placeholder="Click 'Ask' to get an explanation"
           value={userInput}
           onChange={(event) => setUserInput(event.target.value)}
         />

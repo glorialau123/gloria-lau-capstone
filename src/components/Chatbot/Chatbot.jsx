@@ -1,7 +1,7 @@
 import "./Chatbot.scss";
 import mrfluff from "../../assets/images/professor-mrfluff.png";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const { REACT_APP_BACKEND_URL } = process.env;
 
@@ -10,12 +10,19 @@ function Chatbot(props) {
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { newChat, retrievedThreadId } = props;
+  const goToMessageEndRef = useRef(null);
 
   //reset chatbot messages when go to new question id
-
   useEffect(() => {
     setMessage(null);
   }, [newChat, retrievedThreadId]);
+
+  useEffect(() => {
+    //if the component has rendered and ref is attached to a DOM element, ie. not null, then scroll the div/call method
+    if (goToMessageEndRef.current) {
+      goToMessageEndRef.current.scrollIntoView({ behaviour: "smooth" });
+    }
+  }, [message]);
 
   const getMessages = async (event) => {
     event.preventDefault();
@@ -65,8 +72,10 @@ function Chatbot(props) {
                 {chatMessage}
               </li>
             ))}
+          <div className="chatbot__ref-location" ref={goToMessageEndRef} />
         </div>
-        <input
+
+        <textarea
           type="text"
           className="chatbot__input"
           placeholder="Click 'Ask' to get an explanation or type a question here"

@@ -52,7 +52,7 @@
     @include mobile-subheader-text;
     @include tablet {
       font-size: 1.5rem;
-      line-height: 1.5rem;
+      line-height: 1.75rem;
     }
   }
   &__options-container {
@@ -72,7 +72,7 @@
       font-size: 1.5rem;
     }
     &:hover {
-      transform: scale(1.2);
+      transform: scale(1.1);
       cursor: pointer;
     }
     &--correct {

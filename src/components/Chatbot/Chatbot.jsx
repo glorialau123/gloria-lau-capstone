@@ -18,9 +18,16 @@ function Chatbot(props) {
       // const retrievedThreadId = getThreadResponse.data.threadId;
       // console.log(retrievedThreadId);
       if (!message) {
+        let questionWithOptions = newChat.text;
+        if (newChat.options && newChat.options.length > 0) {
+          questionWithOptions +=
+            " Options are: " +
+            newChat.options.map((option) => option.text).join(", ") +
+            "Can you explain the question and go through each option?";
+        }
         const chatbotResponse = await axios.post(`${REACT_APP_BACKEND_URL}/message`, {
           threadId: retrievedThreadId,
-          message: newChat.text,
+          message: questionWithOptions,
         });
         setMessage(chatbotResponse.data.conversation.reverse());
         console.log(message);

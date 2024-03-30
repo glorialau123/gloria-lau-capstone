@@ -15,7 +15,6 @@ function App() {
         <Routes>
           <Route path="/" element={<SelectionsPage />} />
           <Route path="/topic/comingsoon" element={<ComingSoonPage />} />
-          {/* <Route path="/topic/review/1" element={<QuestionPage />} /> */}
           <Route path="/topic/review/:id" element={<QuestionPage />} />
           <Route path="/topic/review/score" element={<ScoresPage />} />
         </Routes>

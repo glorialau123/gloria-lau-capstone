@@ -2,10 +2,16 @@ import "./QuestionPage.scss";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Chatbot from "../../components/Chatbot/Chatbot";
 
 const { REACT_APP_BACKEND_URL } = process.env;
 
 function QuestionPage() {
+  //state variables to pass down to chatbot:
+  const [newChat, setNewChat] = useState([]);
+  const [retrievedThreadId, setRetrievedThreadId] = useState("");
+
+  //to use for question/answer section
   const params = useParams();
   let questionId = parseInt(params.id); //use for navigation and URL
   const [selectedQuestion, setSelectedQuestion] = useState({});
@@ -16,6 +22,15 @@ function QuestionPage() {
   //implement right/wrong logic
   const [selectedOption, setSelectedOption] = useState(null);
 
+  //implement pulsing animation state for correct questions
+  const [pulseAnimation, setPulseAnimation] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPulseAnimation(false);
+    }, 2000);
+  }, [correctQuestions]);
+
   useEffect(() => {
     const getSingleQuestion = async function () {
       try {
@@ -24,12 +39,29 @@ function QuestionPage() {
         );
         console.log(response.data);
         setSelectedQuestion(response.data);
+        setNewChat(response.data);
         setSelectedOption(null);
       } catch (error) {
         console.error(error);
       }
     };
     getSingleQuestion();
+  }, [questionId]);
+
+  //get thread id and pass to chatbot component
+  useEffect(() => {
+    const getThread = async function () {
+      try {
+        const getThreadResponse = await axios.get(
+          `${REACT_APP_BACKEND_URL}/chatbot/thread`
+        );
+        setRetrievedThreadId(getThreadResponse.data.threadId);
+        console.log(retrievedThreadId);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getThread();
   }, [questionId]);
 
   //handle next question and change URL
@@ -67,6 +99,7 @@ function QuestionPage() {
       setQuestionStatus((previousStatus) => ({ ...previousStatus, [questionId]: true }));
       setIsOptionSelected(true);
       setCorrectQuestions((prevCorrectQuestions) => prevCorrectQuestions + 1);
+      setPulseAnimation(true);
     } else if (option.isCorrect === false && !questionStatus[questionId]) {
       setQuestionStatus((previousStatus) => ({ ...previousStatus, [questionId]: true }));
       setSelectedOption(false);
@@ -86,7 +119,13 @@ function QuestionPage() {
         <h1 className="question-pg__topic">Unit Review</h1>
         <div className="question-pg__heading">
           <p className="question-pg__number">Question {selectedQuestion?.id}</p>
-          <p className="question-pg__current-score">{correctQuestions}/10 correct</p>
+          <p
+            className={`question-pg__current-score ${
+              pulseAnimation ? "question-pg__current-score--animate" : ""
+            }`}
+          >
+            {correctQuestions}/10 correct
+          </p>
         </div>
 
         <div className="question-pg__question-container">
@@ -144,7 +183,9 @@ function QuestionPage() {
           </button>
         </div>
       </div>
-      {/* need new div here for chatbot - click to toggle and display?; need to do "flex", "column" on section div */}
+      {/* need new div here for chatbot - click to toggle and display?; need to do "flex", "column" on section div for mobile */}
+      {/* need toggle functionality; modal?? */}
+      <Chatbot newChat={newChat} retrievedThreadId={retrievedThreadId} />
     </section>
   );
 }

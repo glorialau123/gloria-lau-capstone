@@ -15,8 +15,10 @@ function App() {
         <Routes>
           <Route path="/" element={<SelectionsPage />} />
           <Route path="/topic/comingsoon" element={<ComingSoonPage />} />
-          <Route path="/topic/review/:id" element={<QuestionPage />} />
-          <Route path="/topic/review/score" element={<ScoresPage />} />
+          <Route path="/topic/:topicname/:id" element={<QuestionPage />} />
+
+          {/* <Route path="/topic/review/:id" element={<QuestionPage />} /> */}
+          <Route path="/topic/:topicname/score" element={<ScoresPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

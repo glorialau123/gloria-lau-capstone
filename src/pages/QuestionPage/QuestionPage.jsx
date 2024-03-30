@@ -14,6 +14,11 @@ function QuestionPage() {
   //to use for question/answer section
   const params = useParams();
   let questionId = parseInt(params.id); //use for navigation and URL
+
+  //test out topic routes
+  let topicName = params.topicname;
+  console.log(topicName);
+
   const [selectedQuestion, setSelectedQuestion] = useState({});
   const [correctQuestions, setCorrectQuestions] = useState(0);
   const [questionStatus, setQuestionStatus] = useState({}); // need to set a question status to remember if the question has been answered already
@@ -35,7 +40,7 @@ function QuestionPage() {
     const getSingleQuestion = async function () {
       try {
         const response = await axios.get(
-          `${REACT_APP_BACKEND_URL}/topic/review/${questionId}`
+          `${REACT_APP_BACKEND_URL}/topic/${topicName}/${questionId}`
         );
         console.log(response.data);
         setSelectedQuestion(response.data);
@@ -80,12 +85,14 @@ function QuestionPage() {
     if (questionId >= 1 && questionId < 10) {
       const newQuestionId = questionId + 1;
       console.log(newQuestionId);
-      navigate(`/topic/review/${newQuestionId}`);
+      navigate(`/topic/${topicName}/${newQuestionId}`);
       setSelectedOption(null);
       setIsOptionSelected(questionStatus[newQuestionId] === true);
     }
     if (questionId === 10) {
-      navigate(`/topic/review/score`, { state: { correctQuestions: correctQuestions } });
+      navigate(`/topic/${topicName}/score`, {
+        state: { correctQuestions: correctQuestions },
+      });
     }
   }
 

@@ -15,7 +15,7 @@ function SelectionsPage() {
         />
       </div>
       <div className="selections__topics">
-        <Link className="selections__topic-link" to="/topic/comingsoon">
+        <Link className="selections__topic-link" to="/topic/atomictheory/1">
           <div className="selections__topic selections__topic--1">
             <h2 className="selections__subtitle">Atomic Theory</h2>
           </div>

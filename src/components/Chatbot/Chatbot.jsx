@@ -77,8 +77,8 @@ function Chatbot(props) {
       <form className="chatbot__form" onSubmit={getMessages}>
         <div className="chatbot__messages">
           {!message ? (
-            <div>
-              <p>Chat messages shown here</p>
+            <div className="chatbot__unsubmitted-container">
+              <p className="chatbot__unsubmitted-placeholder">Chat messages shown here</p>
             </div>
           ) : (
             message?.map((chatMessage, index) => (

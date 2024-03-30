@@ -99,6 +99,12 @@
       @include animateWithSpeedCurve(bouncing, 1s, linear, infinite);
     }
   }
+  &__unsubmitted-placeholder {
+    font-size: 1rem;
+    @include desktop {
+      font-size: 1.5rem;
+    }
+  }
   &__input {
     width: 100%;
     margin: 0 0 1rem;

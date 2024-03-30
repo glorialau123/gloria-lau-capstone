@@ -123,7 +123,22 @@ function QuestionPage() {
     // change to components afterwards
     <section className="question-pg">
       <div className="question-pg__main">
-        <h1 className="question-pg__topic">Unit Review</h1>
+        {topicName === "atomictheory" && (
+          <h1 className="question-pg__topic">Atomic Theory</h1>
+        )}
+        {topicName === "ioniccompounds" && (
+          <h1 className="question-pg__topic">Ionic Compounds</h1>
+        )}
+        {topicName === "balancing" && (
+          <h1 className="question-pg__topic">Balancing Equations</h1>
+        )}
+        {topicName === "types" && (
+          <h1 className="question-pg__topic">Types of Reactions</h1>
+        )}
+        {topicName === "acidbase" && (
+          <h1 className="question-pg__topic">Acids and Bases</h1>
+        )}
+        {topicName === "review" && <h1 className="question-pg__topic">Unit Review</h1>}
         <div className="question-pg__heading">
           <p className="question-pg__number">Question {selectedQuestion?.id}</p>
           <p

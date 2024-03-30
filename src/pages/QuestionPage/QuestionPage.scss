@@ -87,6 +87,8 @@
     padding: 1rem;
     font-size: 1rem;
     margin: 0 0 1rem;
+    transition: all 0.25s ease-in-out;
+
     @include tablet {
       font-size: 1.5rem;
     }
@@ -114,6 +116,8 @@
     border-radius: 10px;
     border: none;
     background-color: orange;
+    transition: all 0.25s ease-in-out;
+
     @include mobile-label-button-text;
     @include tablet {
       @include tablet-desktop-button-label-text;

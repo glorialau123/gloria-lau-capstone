@@ -34,7 +34,7 @@ function Chatbot(props) {
           questionWithOptions +=
             " Options are: " +
             newChat.options.map((option) => option.text).join(", ") +
-            " Can you explain the question and go through each option briefly?";
+            ". Can you explain the question and go through each option briefly?";
         }
         const chatbotResponse = await axios.post(
           `${REACT_APP_BACKEND_URL}/chatbot/message`,

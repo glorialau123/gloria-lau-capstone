@@ -57,7 +57,7 @@
           transform: scale(1);
         }
       }
-      @include pulsate(pulsating, 0.75s, infinite);
+      @include animate(pulsating, 0.75s, infinite);
     }
   }
   &__question-container {

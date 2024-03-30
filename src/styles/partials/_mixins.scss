@@ -13,8 +13,12 @@
 }
 
 //mixin for pulsing animation
-@mixin pulsate($animation, $duration, $times) {
+@mixin animate($animation, $duration, $times) {
   animation: $animation $duration $times;
+}
+
+@mixin animateWithSpeedCurve($animation, $duration, $speedcurve, $times) {
+  animation: $animation $duration $speedcurve $times;
 }
 
 @mixin keyframes($name) {

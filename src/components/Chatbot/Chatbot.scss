@@ -61,20 +61,43 @@
     text-align: center;
     @include keyframes(pulsating) {
       0% {
-        transform: scale(1);
+        transform: scale(0.8);
       }
       50% {
-        transform: scale(1.1);
-      }
-      100% {
         transform: scale(1);
       }
+      100% {
+        transform: scale(0.8);
+      }
     }
-    @include pulsate(pulsating, 0.75s, infinite);
+    @include animate(pulsating, 0.75s, infinite);
   }
   &__image {
     padding: 2rem 0;
     width: 8rem;
+    position: relative;
+    @include keyframes(bouncing) {
+      0%,
+      100% {
+        bottom: 0;
+      }
+      50% {
+        bottom: 10px;
+      }
+    }
+    @include animateWithSpeedCurve(bouncing, 1s, linear, infinite);
+    @include tablet {
+      @include keyframes(bouncing) {
+        0%,
+        100% {
+          right: 0;
+        }
+        50% {
+          right: 10px;
+        }
+      }
+      @include animateWithSpeedCurve(bouncing, 1s, linear, infinite);
+    }
   }
   &__input {
     width: 100%;
@@ -131,6 +154,7 @@
       height: 5rem;
       font-size: 1.25rem;
       border-radius: 60px;
+      margin: 0 0 0 1rem;
     }
     @include desktop {
       width: 7rem;

@@ -20,6 +20,9 @@
   }
   &__topic {
     margin: 0 0 1rem;
+    @include tablet {
+      @include tablet-page-text;
+    }
   }
   &__heading {
     display: flex;
@@ -27,21 +30,21 @@
     margin: 0 0 1rem;
   }
   &__number {
-    @include bold-16px-text;
+    @include bold-20px-text;
     @include tablet {
-      font-size: 1.25rem;
+      @include bold-24px-text;
     }
   }
   &__current-score {
     text-align: right;
-    @include bold-16px-text;
+    @include bold-20px-text;
     animation: 1600ms pulsate infinite alternate ease-in-out;
 
     @include tablet {
-      @include bold-20px-text;
+      @include bold-24px-text;
     }
     &--animate {
-      @include bold-24px-text;
+      color: rgb(22, 212, 22);
       @include keyframes(pulsating) {
         0% {
           transform: scale(1);

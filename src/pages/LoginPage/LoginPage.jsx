@@ -25,7 +25,6 @@ function LoginPage() {
     <form className="login" onSubmit={handleSubmit}>
       <div className="login__container">
         <h1 className="login__title">Science with Mr.Fluff</h1>
-        {/* <h1 className="login__title">Science with Mr.Fluff</h1> */}
         <img src={teaching} alt="cat designing a page" className="login__image" />
       </div>
       <div className="login__inputs">

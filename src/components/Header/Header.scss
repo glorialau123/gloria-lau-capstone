@@ -3,8 +3,7 @@
 @use "../../styles/partials/variables" as *;
 
 .header {
-  display: flex;
-  flex-direction: column;
+  @include column-flex;
   justify-content: center;
   text-align: center;
   padding: 1rem;
@@ -39,12 +38,13 @@
   }
 
   &__title {
-    font-size: 1.25rem;
-    line-height: 2rem;
-    font-weight: 700;
+    @include bold-20px-text;
     margin: 0 0 0 1rem;
   }
   &__name {
-    @include mobile-subheader-text;
+    @include bold-16px-text;
+    @include tablet {
+      @include bold-20px-text;
+    }
   }
 }

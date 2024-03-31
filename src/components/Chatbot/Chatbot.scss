@@ -11,8 +11,7 @@
     align-items: flex-end;
   }
   &__form {
-    display: flex;
-    flex-direction: column;
+    @include column-flex;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -29,7 +28,7 @@
 
     @include mobile-body-text;
     @include tablet {
-      font-size: 1.5rem;
+      @include standard-24px-text;
       line-height: 1.5rem;
       height: 27rem;
       @include desktop {
@@ -41,16 +40,14 @@
   &__message-item {
     list-style: none;
     padding: 0 1rem 1rem;
-    font-size: 1rem;
-    line-height: 1.25rem;
+    @include standard-16px-text;
     white-space: pre-wrap;
     @include tablet {
-      font-size: 1rem;
       line-height: 1.75rem;
     }
     @include desktop {
-      font-size: 1.5rem;
-      line-height: 1.75rem;
+      @include standard-24px-text;
+      line-height: 1.85rem;
     }
     &--assistant {
       font-weight: bold;
@@ -100,9 +97,9 @@
     }
   }
   &__unsubmitted-placeholder {
-    font-size: 1rem;
+    @include standard-16px-text;
     @include desktop {
-      font-size: 1.5rem;
+      @include standard-24px-text;
     }
   }
   &__input {
@@ -112,7 +109,7 @@
     border-radius: 10px;
     height: 6rem;
     padding: 1rem 2rem;
-    font-size: 1rem;
+    @include standard-16px-text;
     font-family: "Red Hat Text", Verdana, Geneva, Tahoma, sans-serif;
     background-color: rgb(254, 237, 237);
     resize: none;
@@ -126,7 +123,7 @@
       background-color: white;
     }
     @include desktop {
-      font-size: 1.5rem;
+      @include standard-24px-text;
       height: 6rem;
     }
   }
@@ -147,7 +144,7 @@
     padding: 0.5rem;
     width: 4rem;
     height: 4rem;
-    font-size: 1rem;
+    @include standard-16px-text;
     font-weight: bold;
     font-family: "Red Hat Text", Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 60px;
@@ -158,14 +155,14 @@
     @include tablet {
       width: 5rem;
       height: 5rem;
-      font-size: 1.25rem;
+      @include standard-20px-text;
       border-radius: 60px;
       margin: 0 0 0 1rem;
     }
     @include desktop {
       width: 7rem;
       height: 7rem;
-      font-size: 1.5rem;
+      @include standard-24px-text;
     }
     &:hover {
       transform: scale(1.2);

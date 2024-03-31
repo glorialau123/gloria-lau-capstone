@@ -4,8 +4,7 @@
 
 .selections {
   padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
+  @include column-flex;
   @include tablet {
     flex-direction: row;
     padding: 4rem 2rem;
@@ -30,7 +29,7 @@
   }
 
   &__title {
-    @include mobile-page-header-text;
+    @include bold-24px-text;
     text-align: center;
     color: black;
     @include tablet {
@@ -41,8 +40,7 @@
     }
   }
   &__title-container {
-    display: flex;
-    flex-direction: column;
+    @include column-flex;
     justify-content: center;
     align-items: center;
   }
@@ -73,7 +71,6 @@
     }
     @include tablet {
       height: 12rem;
-
       display: flex;
       justify-content: center;
       align-items: center;
@@ -94,10 +91,10 @@
   }
 
   &__subtitle {
-    @include mobile-subheader-text;
+    @include bold-16px-text;
     color: $topic-font-color;
     @include tablet {
-      @include tablet-subheader-text;
+      @include bold-24px-text;
       line-height: 2rem;
     }
     @include desktop {

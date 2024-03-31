@@ -49,7 +49,7 @@
   }
   &__inputs {
     padding: 1rem 2rem;
-    width: 100%;
+    width: 45%;
     @include column-flex;
     justify-content: center;
     align-items: center;
@@ -62,7 +62,7 @@
   }
   &__area {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     padding: 0 0 0.25rem;
   }
@@ -73,9 +73,11 @@
       font-weight: bold;
     }
   }
-  &__input {
+  &__username-input,
+  &__password-input {
     width: 10rem;
     padding: 0.25rem;
+    margin: 0 0 0 1rem;
     border-radius: 10px;
     border: none;
     outline: none;
@@ -85,6 +87,9 @@
     @include tablet {
       @include standard-16px-text;
     }
+  }
+  &__password-input {
+    margin: 0 0 0 1.5rem;
   }
   &__button {
     background-color: orangered;

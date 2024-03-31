@@ -1,0 +1,105 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.login {
+  padding: 0 0 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #ee7752, #f86ca4, #e6c342, #fed859);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  @include keyframes(gradient) {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 1rem 0;
+    @include tablet {
+      padding: 2rem;
+      flex-direction: row;
+    }
+  }
+  &__title {
+    @include mobile-page-header-text;
+    text-shadow: 0px 10px 10px white;
+    @include tablet {
+      margin: 0 2rem 0 0;
+      @include tablet-page-text;
+    }
+    @include desktop {
+      @include desktop-page-text;
+    }
+  }
+  &__image {
+    padding: 2rem 0 0;
+    width: 12rem;
+  }
+  &__inputs {
+    padding: 1rem 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include tablet {
+      width: 45%;
+    }
+    @include desktop {
+      width: 27%;
+    }
+  }
+  &__area {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 0 0.25rem;
+  }
+  &__label {
+    font-weight: bold;
+    @include tablet {
+      font-size: 1.25rem;
+    }
+  }
+  &__input {
+    width: 10rem;
+    padding: 0.25rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    &:focus {
+      border: 1px solid orange;
+    }
+    @include tablet {
+      font-size: 1rem;
+    }
+  }
+  &__button {
+    background-color: orangered;
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 25px;
+    border: none;
+    @include mobile-subheader-text;
+    &:hover {
+      transform: scale(1.2);
+    }
+    @include tablet {
+      font-size: 1rem;
+    }
+  }
+}

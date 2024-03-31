@@ -3,8 +3,12 @@
 @use "../../styles/partials/variables" as *;
 
 .footer {
-  padding: 0 0 2rem;
+  padding: 1rem 0 2rem;
   &__text {
     text-align: center;
+  }
+  &__image-link {
+    text-decoration: none;
+    color: rgb(163, 72, 39);
   }
 }

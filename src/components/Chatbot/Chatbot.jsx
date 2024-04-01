@@ -12,13 +12,13 @@ function Chatbot(props) {
   const { newChat, retrievedThreadId } = props;
   const goToMessageEndRef = useRef(null);
 
-  //reset chatbot messages when go to new question id
+  //to reset chatbot messages when go to new question id
   useEffect(() => {
     setMessage(null);
   }, [newChat, retrievedThreadId]);
 
   useEffect(() => {
-    //if the component has rendered and ref is attached to a DOM element, ie. not null, then scroll the div/call method
+    //if the component has rendered and ref is attached to a DOM element, ie. not null, then call the scroll method to scroll to the bottom of the chatbot container where the div with the ref attribute is
     if (goToMessageEndRef.current) {
       goToMessageEndRef.current.scrollIntoView({ behaviour: "smooth" });
     }
@@ -43,10 +43,7 @@ function Chatbot(props) {
             message: questionWithOptions,
           }
         );
-        //original:
         setMessage(chatbotResponse.data.conversation.reverse());
-
-        console.log(message);
       } else if (userInput) {
         const chatbotResponse = await axios.post(
           `${REACT_APP_BACKEND_URL}/chatbot/message`,
@@ -58,7 +55,6 @@ function Chatbot(props) {
 
         setMessage(chatbotResponse.data.conversation.reverse());
         setUserInput("");
-        console.log(message);
       } else {
         alert("Please enter a question!");
       }
@@ -68,10 +64,6 @@ function Chatbot(props) {
       setIsLoading(false);
     }
   };
-
-  //test out message
-  console.log(message);
-
   return (
     <section className="chatbot">
       <form className="chatbot__form" onSubmit={getMessages}>
@@ -95,20 +87,6 @@ function Chatbot(props) {
             ))
           )}
           {isLoading && <p className="chatbot__loading">Loading messages...</p>}
-
-          {/* // {!isLoading &&
-              //   message?.map((chatMessage, index) => (
-              //     <li
-              //       className={`chatbot__message-item ${
-              //         chatMessage.includes("Mr. Fluff:")
-              //           ? "chatbot__message-item--assistant"
-              //           : ""
-              //       }`}
-              //       key={index}
-              //     >
-              //       {chatMessage}
-              //     </li>
-            ))} */}
           <div className="chatbot__ref-location" ref={goToMessageEndRef} />
         </div>
 

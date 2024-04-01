@@ -25,7 +25,6 @@ function LoginPage() {
     <form className="login" onSubmit={handleSubmit}>
       <div className="login__container">
         <h1 className="login__title">Science with Mr.Fluff</h1>
-        {/* <h1 className="login__title">Science with Mr.Fluff</h1> */}
         <img src={teaching} alt="cat designing a page" className="login__image" />
       </div>
       <div className="login__inputs">
@@ -36,7 +35,7 @@ function LoginPage() {
           <input
             name="username"
             type="text"
-            className="login__input"
+            className="login__username-input"
             placeholder="username"
             value={userName}
             onChange={(event) => setUserName(event.target.value)}
@@ -49,7 +48,7 @@ function LoginPage() {
           <input
             name="password"
             type="password"
-            className="login__input"
+            className="login__password-input"
             placeholder="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}

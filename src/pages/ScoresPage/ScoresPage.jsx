@@ -7,7 +7,6 @@ import awesome from "../../assets/images/music-mrfluff.png";
 function ScoresPage() {
   const location = useLocation();
   const { correctQuestions } = location.state;
-  console.log(typeof correctQuestions); //number
 
   return (
     <section className="scores-pg">

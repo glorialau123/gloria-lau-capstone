@@ -13,16 +13,15 @@ function QuestionPage() {
 
   //to use for question/answer section
   const params = useParams();
-  let questionId = parseInt(params.id); //use for navigation and URL
+  let questionId = parseInt(params.id); //to use for navigation and URL
 
-  //test out topic routes
+  //to use for routing to different topics
   let topicName = params.topicname;
-  console.log(topicName);
 
   const [selectedQuestion, setSelectedQuestion] = useState({});
   const [correctQuestions, setCorrectQuestions] = useState(0);
-  const [questionStatus, setQuestionStatus] = useState({}); // need to set a question status to remember if the question has been answered already
-  const [isOptionSelected, setIsOptionSelected] = useState(false); //need to disable next button if no option selected
+  const [questionStatus, setQuestionStatus] = useState({}); //to set a question status to remember if the question has been answered already
+  const [isOptionSelected, setIsOptionSelected] = useState(false); //to disable next button if no option selected
 
   //implement right/wrong logic
   const [selectedOption, setSelectedOption] = useState(null);
@@ -42,7 +41,6 @@ function QuestionPage() {
         const response = await axios.get(
           `${REACT_APP_BACKEND_URL}/topic/${topicName}/${questionId}`
         );
-        console.log(response.data);
         setSelectedQuestion(response.data);
         setNewChat(response.data);
         setSelectedOption(null);
@@ -61,7 +59,6 @@ function QuestionPage() {
           `${REACT_APP_BACKEND_URL}/chatbot/thread`
         );
         setRetrievedThreadId(getThreadResponse.data.threadId);
-        console.log(retrievedThreadId);
       } catch (error) {
         console.error(error);
       }
@@ -75,7 +72,6 @@ function QuestionPage() {
   function handlePreviousQuestion() {
     if (questionId > 1) {
       const newQuestionId = questionId - 1;
-      console.log(newQuestionId);
       navigate(`/topic/review/${newQuestionId}`);
       setIsOptionSelected(questionStatus[newQuestionId] === true);
     }
@@ -84,7 +80,6 @@ function QuestionPage() {
   function handleNextQuestion() {
     if (questionId >= 1 && questionId < 10) {
       const newQuestionId = questionId + 1;
-      console.log(newQuestionId);
       navigate(`/topic/${topicName}/${newQuestionId}`);
       setSelectedOption(null);
       setIsOptionSelected(questionStatus[newQuestionId] === true);
@@ -98,11 +93,10 @@ function QuestionPage() {
 
   //handle click on an option/answer
   function handleAnswerClick(option) {
-    console.log("I am clicked");
     if (option.isCorrect === true && !questionStatus[questionId]) {
       console.log("(in if part) this is correct");
       setSelectedOption(true);
-      //need to track if question has been answered already. If answered, the count shouldn't increase again. Use questionId as key in questionStatus object.
+      //to track if question has been answered already. If answered, the count shouldn't increase again. Use questionId as key in questionStatus object.
       setQuestionStatus((previousStatus) => ({ ...previousStatus, [questionId]: true }));
       setIsOptionSelected(true);
       setCorrectQuestions((prevCorrectQuestions) => prevCorrectQuestions + 1);
@@ -111,16 +105,10 @@ function QuestionPage() {
       setQuestionStatus((previousStatus) => ({ ...previousStatus, [questionId]: true }));
       setSelectedOption(false);
       setIsOptionSelected(true);
-      console.log("this is wrong");
     }
   }
 
-  useEffect(() => {
-    console.log("number of correctQuestions", correctQuestions);
-  }, [correctQuestions]);
-
   return (
-    // change to components afterwards
     <section className="question-pg">
       <div className="question-pg__main">
         {topicName === "atomictheory" && (
@@ -154,7 +142,6 @@ function QuestionPage() {
           <p className="question-pg__question">{selectedQuestion?.text}</p>
         </div>
         <div className="question-pg__options-container">
-          {/* options: if the first condition is evaluated to be false, then the second condition "selectedOption!==null && selectedQuestion.options[1].isCorrect === false" is evaluated */}
           {selectedQuestion?.options?.map((option) => {
             let optionClassName = "question-pg__option";
             if (selectedOption !== null) {
@@ -205,8 +192,6 @@ function QuestionPage() {
           </button>
         </div>
       </div>
-      {/* need new div here for chatbot - click to toggle and display?; need to do "flex", "column" on section div for mobile */}
-      {/* need toggle functionality; modal?? */}
       <Chatbot newChat={newChat} retrievedThreadId={retrievedThreadId} />
     </section>
   );

@@ -1,5 +1,5 @@
 import "./Header.scss";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/logos/paw-print.svg";
 
 function Header() {

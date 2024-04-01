@@ -4,8 +4,7 @@
 
 .question-pg {
   padding: 1rem;
-  display: flex;
-  flex-direction: column;
+  @include column-flex;
   @include tablet {
     padding: 1rem 2rem;
     flex-direction: row;
@@ -14,14 +13,16 @@
     padding: 1rem 5rem;
   }
   &__main {
-    display: flex;
-    flex-direction: column;
+    @include column-flex;
     @include tablet {
       width: 50%;
     }
   }
   &__topic {
     margin: 0 0 1rem;
+    @include tablet {
+      @include tablet-page-text;
+    }
   }
   &__heading {
     display: flex;
@@ -29,23 +30,21 @@
     margin: 0 0 1rem;
   }
   &__number {
-    font-size: 1rem;
-    font-weight: bold;
+    @include bold-20px-text;
     @include tablet {
-      font-size: 1.25rem;
+      @include bold-24px-text;
     }
   }
   &__current-score {
     text-align: right;
-    font-size: 1rem;
-    font-weight: bold;
+    @include bold-20px-text;
     animation: 1600ms pulsate infinite alternate ease-in-out;
 
     @include tablet {
-      font-size: 1.25rem;
+      @include bold-24px-text;
     }
     &--animate {
-      font-size: 1.5rem;
+      color: rgb(22, 212, 22);
       @include keyframes(pulsating) {
         0% {
           transform: scale(1);
@@ -68,15 +67,13 @@
   }
   &__question {
     text-align: center;
-    @include mobile-subheader-text;
+    @include bold-16px-text;
     @include tablet {
-      font-size: 1.5rem;
-      line-height: 1.75rem;
+      @include bold-24px-text;
     }
   }
   &__options-container {
-    display: flex;
-    flex-direction: column;
+    @include column-flex;
     margin: 0 0 1rem;
   }
   &__option {
@@ -85,12 +82,12 @@
     border-radius: 50px;
     text-align: center;
     padding: 1rem;
-    font-size: 1rem;
+    @include standard-16px-text;
     margin: 0 0 1rem;
-    transition: all 0.25s ease-in-out;
+    transition: all 0.15s ease-in-out;
 
     @include tablet {
-      font-size: 1.5rem;
+      @include standard-24px-text;
     }
     &:hover {
       transform: scale(1.05);
@@ -120,7 +117,7 @@
 
     @include mobile-label-button-text;
     @include tablet {
-      @include tablet-desktop-button-label-text;
+      @include bold-16px-text;
     }
     &:hover {
       transform: scale(1.2);

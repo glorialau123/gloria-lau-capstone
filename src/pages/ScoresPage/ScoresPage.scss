@@ -4,13 +4,11 @@
 
 .scores-pg {
   margin: 0 0 4rem;
-  display: flex;
-  flex-direction: column;
+  @include column-flex;
   justify-content: center;
   align-items: center;
   &__container {
-    display: flex;
-    flex-direction: column;
+    @include column-flex;
     justify-content: center;
     align-items: center;
     padding: 4rem 1rem 2rem;
@@ -20,10 +18,12 @@
     }
   }
   &__title {
-    @include mobile-page-header-text;
+    @include bold-20px-text;
+    text-align: center;
     @include tablet {
       margin: 0 2rem 0 0;
       @include tablet-page-text;
+      text-align: right;
     }
     @include desktop {
       @include desktop-page-text;
@@ -39,12 +39,12 @@
     padding: 1rem 2rem;
     text-decoration: none;
     border-radius: 25px;
-    @include mobile-subheader-text;
+    @include bold-16px-text;
     &:hover {
       transform: scale(1.2);
     }
     @include tablet {
-      @include tablet-subheader-text;
+      @include bold-24px-text;
     }
   }
 }

@@ -94,7 +94,6 @@ function QuestionPage() {
   //handle click on an option/answer
   function handleAnswerClick(option) {
     if (option.isCorrect === true && !questionStatus[questionId]) {
-      console.log("(in if part) this is correct");
       setSelectedOption(true);
       //to track if question has been answered already. If answered, the count shouldn't increase again. Use questionId as key in questionStatus object.
       setQuestionStatus((previousStatus) => ({ ...previousStatus, [questionId]: true }));

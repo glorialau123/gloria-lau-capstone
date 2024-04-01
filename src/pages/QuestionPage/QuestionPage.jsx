@@ -49,7 +49,7 @@ function QuestionPage() {
       }
     };
     getSingleQuestion();
-  }, [questionId]);
+  }, [questionId, topicName]);
 
   //get thread id and pass to chatbot component
   useEffect(() => {

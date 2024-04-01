@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# Empowering Learning with AI: Science with Mr. Fluff
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Deployed Site: https://main--mrfluff.netlify.app/
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+My application is a virtual instructor chatbot that can help with science queries that students may have, alongside given chemistry quiz questions.
 
-### `npm start`
+### Problem
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+One of the challenges that students can face is the lack of assistance when difficult concepts or questions are encountered either outside of regular class hours or during remote learning, without the immediate support of classmates or instructors. This can potentially result in students feeling discouraged and unmotivated to continue learning. With the implementation of a virtual instructor chatbot, students are able to receive help whenever needed.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### User Profile
 
-### `npm test`
+Users will be high school Science 10 students who have access to mobile phones or computers. They will use the application as a potential assignment or review tool.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Features
+- Login Page
+- Selection of Topics Page
+- Question Page
+- Scores Page
+  
+The site is responsive at mobile (320px), tablet (768px) and desktop (1280px) screens.
 
-### `npm run build`
+Upon opening the application, the user is greeted by a login page. Currently, the login page takes in any username and password combination.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Signing in through the login page brings the user to the selections page of different chemistry topics.
+Clikcing on a topic brings the user to the question page, showing the first question of the selected topic, along with multiple choice selections.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+On the question page, the user is able to click on an answer and have it display as right or wrong. At any time, an instructor chatbot is available to take in questions. Clicking on the "ask" button without any user input will pass the selected question and options to the chatbot. The user can also input any questions they'd like and the chatbot will answer them if they are science-related. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+When the user is done with a question, clicking on the next button brings the user to the next question.
 
-### `npm run eject`
+Upon finishing the last question, a scores page is shown with the total number of questions correctly answered. Based on the score achieved, a different message and image appears. Clicking the "Back to Home" button or the header title brings the user back to the selections page.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Implementation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Tech Stack
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The technologies that are used include Sass, React, Express, OpenAI Node.js library, OpenAI Assistants API
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Usage Instructions
+This is the repository for the front-end. Please also use the repository for the back-end/server portion: https://github.com/glorialau123/gloria-lau-capstone-server.git  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Running on local development environment:
+1. Create a folder.
+2. Download repositories for both the front-end and back-end portions of the application into the same folder.
+3. Inside the front-end folder, create a ".env" file in the root directory. Inside the file, assign the environment variable to a local host url and port of your choice that will run the back-end. (Ex. REACT_APP_BACKEND_URL = http://localhost:8080). A ".env-sample" file is provided for reference.
+4. Inside the back-end folder, create a ".env" file in the root directory. Inside the file, assign the PORT variable to the same port you specified for the front-end. For the OPENAI_API_KEY, you will need to assign your own API key here. A ".env-sample" file is provided for reference.
+5. If you don't have an API key with OpenAI, you can go to https://platform.openai.com/api-keys to create one. Please check if you have credit grants available to use: https://platform.openai.com/usage .
+6. Once both ".env" files have been set up, you can cd into your front-end folder and back-end folder from the terminal. Run "npm start" to start the application. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![image](https://github.com/glorialau123/gloria-lau-capstone-client/assets/96962463/da6156e5-64fe-499d-98eb-6264aefc2b2c)
+7. Currently, the assistant has already been created. If you'd like to create a new assistant, you can specify different parameters inside the chatbot.js file that is inside the Routes folder for the back-end. See the file for further details.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### APIs
 
-### Code Splitting
+The application uses OpenAI's assistants API and questions/answers taken from JSON files.
+- Data: The question bank data are sets of questions and multiple choices, saved in json files.
+- For the questions and answers, the front-end and back-end implements HTTP GET requests for Q/A retrieval. For the chatbot and user responses, the front-end implements HTTP POST requests to send queries and the back-end implements GET/POST requests, coupled with OpenAI's Node API Library and Assistants API. Parameters for the name, instructions and model were given when creating the AI assistant.  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Screenshots
+#### Login Page:
+- Mobile:
+  
+  ![image](https://github.com/glorialau123/gloria-lau-capstone-client/assets/96962463/ace52214-3d6d-4f36-9b3d-2a02bfc07947)
+- Tablet/Desktop:
+  
+  ![image](https://github.com/glorialau123/gloria-lau-capstone-client/assets/96962463/c1ab4ee2-56af-456b-96a7-b9a3f0f196d9)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Selections Page:
+- Mobile:
+  
+![image](https://github.com/glorialau123/gloria-lau-capstone-client/assets/96962463/3cbe5dba-8679-41cc-9f1b-d4f3a4409af9)
+- Tablet/Desktop:
+  
+![image](https://github.com/glorialau123/gloria-lau-capstone-client/assets/96962463/4be75a68-3ae9-4c25-9825-1ef88ac5deee)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### Question Page:
+- Mobile:
+  
+![image](https://github.com/glorialau123/gloria-lau-capstone-client/assets/96962463/7a9fcfab-a3b5-4c91-8755-f977fa11e2bb)
+- Tablet/Desktop:
+  
+![image](https://github.com/glorialau123/gloria-lau-capstone-client/assets/96962463/59f11557-770a-4b49-912f-23b9d402fe63)
 
-### Advanced Configuration
+#### Scores Page:
+- Mobile:
+  
+![image](https://github.com/glorialau123/gloria-lau-capstone-client/assets/96962463/90333a1f-c352-42e3-86b7-2f6fc70fabd3)
+- Tablet/Desktop:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![image](https://github.com/glorialau123/gloria-lau-capstone-client/assets/96962463/69a54c78-8ebe-4313-a420-6fa7cb12f135)
 
-### Deployment
+## Lessons Learned and Next Steps
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Local storage and authentication functionality so user doesn't lose progress.
+2. Animated backgrounds and characters to simulate an "instructor" as the chatbot
+3. Question bank for different topics/subject areas and difficulty level
+4. Teacher login and functionality so teachers can push their own questions for their classes

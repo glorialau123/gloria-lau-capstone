@@ -1,0 +1,101 @@
+@use "./variables" as *;
+
+@mixin tablet {
+  @media (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+//mixin for animation
+@mixin animate($animation, $duration, $times) {
+  animation: $animation $duration $times;
+}
+
+@mixin animateWithSpeedCurve($animation, $duration, $speedcurve, $times) {
+  animation: $animation $duration $speedcurve $times;
+}
+
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+// mixins for flex display
+@mixin column-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+//mixins for text
+@mixin standard-16px-text {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+
+@mixin bold-16px-text {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+}
+
+@mixin standard-20px-text {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+@mixin bold-20px-text {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+}
+
+@mixin standard-24px-text {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+}
+
+@mixin bold-24px-text {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+}
+
+@mixin mobile-body-text {
+  font-size: 0.813rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+}
+
+@mixin mobile-label-button-text {
+  font-size: 0.813rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+}
+
+@mixin tablet-page-text {
+  font-size: 2.063rem;
+  line-height: 2.75rem;
+  font-weight: 700;
+}
+
+@mixin desktop-page-text {
+  font-size: 2.5rem;
+  line-height: 2.75rem;
+  font-weight: 700;
+}
+
+@mixin desktop-subheader-text {
+  font-size: 2rem;
+  line-height: 2.75rem;
+  font-weight: 700;
+}

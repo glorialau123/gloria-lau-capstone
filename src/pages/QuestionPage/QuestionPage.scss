@@ -1,0 +1,130 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.question-pg {
+  padding: 1rem;
+  @include column-flex;
+  @include tablet {
+    padding: 1rem 2rem;
+    flex-direction: row;
+  }
+  @include desktop {
+    padding: 1rem 5rem;
+  }
+  &__main {
+    @include column-flex;
+    @include tablet {
+      width: 50%;
+    }
+  }
+  &__topic {
+    margin: 0 0 1rem;
+    @include tablet {
+      @include tablet-page-text;
+    }
+  }
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 1rem;
+  }
+  &__number {
+    @include bold-20px-text;
+    @include tablet {
+      @include bold-24px-text;
+    }
+  }
+  &__current-score {
+    text-align: right;
+    @include bold-20px-text;
+    animation: 1600ms pulsate infinite alternate ease-in-out;
+
+    @include tablet {
+      @include bold-24px-text;
+    }
+    &--animate {
+      color: rgb(22, 212, 22);
+      @include keyframes(pulsating) {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @include animate(pulsating, 0.75s, infinite);
+    }
+  }
+  &__question-container {
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 0 0 2rem;
+    border: 2px dashed orange;
+  }
+  &__question {
+    text-align: center;
+    @include bold-16px-text;
+    @include tablet {
+      @include bold-24px-text;
+    }
+  }
+  &__options-container {
+    @include column-flex;
+    margin: 0 0 1rem;
+  }
+  &__option {
+    background-color: rgb(249, 242, 195);
+    width: 100%;
+    border-radius: 50px;
+    text-align: center;
+    padding: 1rem;
+    @include standard-16px-text;
+    margin: 0 0 1rem;
+    transition: all 0.15s ease-in-out;
+
+    @include tablet {
+      @include standard-24px-text;
+    }
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+    &--correct {
+      border: 2px solid rgb(22, 212, 22);
+      background-color: rgb(22, 212, 22);
+    }
+    &--wrong {
+      border: 2px solid red;
+    }
+  }
+  &__buttons-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  &__button {
+    padding: 0.5rem;
+    width: 5rem;
+    font-family: "Red Hat Text", Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
+    border: none;
+    background-color: orange;
+    transition: all 0.25s ease-in-out;
+
+    @include mobile-label-button-text;
+    @include tablet {
+      @include bold-16px-text;
+    }
+    &:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+    &--left {
+      margin: 0 0.5rem 0 0;
+    }
+  }
+}

@@ -1,0 +1,104 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.selections {
+  padding: 2rem 1rem;
+  @include column-flex;
+  @include tablet {
+    flex-direction: row;
+    padding: 4rem 2rem;
+  }
+  @include desktop {
+    padding: 4rem 5rem;
+  }
+  &__title-container {
+    margin: 0 0 2rem;
+    @include tablet {
+      display: flex;
+      align-items: center;
+    }
+    @include desktop {
+    }
+  }
+  &__image {
+    width: 12rem;
+    @include tablet {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    @include bold-24px-text;
+    text-align: center;
+    color: black;
+    @include tablet {
+      @include tablet-page-text;
+    }
+    @include desktop {
+      @include desktop-page-text;
+    }
+  }
+  &__title-container {
+    @include column-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__topics {
+    @include tablet {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+  &__topic-link {
+    text-decoration: none;
+    @include tablet {
+      width: calc(33.33% - 2rem);
+    }
+  }
+  &__topic {
+    width: 100%;
+    border-radius: 50px;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.75rem;
+    margin: 0 0 1rem;
+    transition: all 0.25s ease-in-out;
+    &:hover {
+      transform: scale(1.15);
+    }
+    @include tablet {
+      height: 12rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2.5rem;
+    }
+    @include desktop {
+      height: 20rem;
+    }
+    &--1 {
+      background-color: orangered;
+    }
+    &--2 {
+      background-color: rgb(42, 0, 0);
+    }
+    &--3 {
+      background-color: rgb(185, 95, 5);
+    }
+  }
+
+  &__subtitle {
+    @include bold-16px-text;
+    color: $topic-font-color;
+    @include tablet {
+      @include bold-24px-text;
+      line-height: 2rem;
+    }
+    @include desktop {
+      @include desktop-subheader-text;
+    }
+  }
+}

@@ -25,7 +25,7 @@ The site is responsive at mobile (320px), tablet (768px) and desktop (1280px) sc
 Upon opening the application, the user is greeted by a login page. Currently, the login page takes in any username and password combination.
 
 Signing in through the login page brings the user to the selections page of different chemistry topics.
-Clikcing on a topic brings the user to the question page, showing the first question of the selected topic, along with multiple choice selections.
+Clicking on a topic brings the user to the question page, showing the first question of the selected topic, along with multiple choice selections.
 
 On the question page, the user is able to click on an answer and have it display as right or wrong. At any time, an instructor chatbot is available to take in questions. Clicking on the "ask" button without any user input will pass the selected question and options to the chatbot. The user can also input any questions they'd like and the chatbot will answer them if they are science-related. 
 

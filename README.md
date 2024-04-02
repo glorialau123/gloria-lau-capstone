@@ -45,7 +45,7 @@ This is the repository for the front-end. Please also use the repository for the
 1. Create a folder.
 2. Download repositories for both the front-end and back-end portions of the application into the same folder.
 3. Inside the front-end folder, create a ".env" file in the root directory. Inside the file, assign the environment variable to a local host url and port of your choice that will run the back-end. (Ex. REACT_APP_BACKEND_URL = http://localhost:8080). A ".env-sample" file is provided for reference.
-4. Inside the back-end folder, create a ".env" file in the root directory. Inside the file, assign the PORT variable to the same port you specified for the front-end. For the OPENAI_API_KEY, you will need to assign your own API key here. A ".env-sample" file is provided for reference.
+4. Inside the back-end folder, create a ".env" file in the root directory. Inside the file, assign the PORT variable to the same port you specified in the front-end's ".env" file. For the OPENAI_API_KEY, you will need to assign your own API key here. A ".env-sample" file is provided for reference.
 5. If you don't have an API key with OpenAI, you can go to https://platform.openai.com/api-keys to create one. Please check if you have credit grants available to use: https://platform.openai.com/usage .
 6. Once both ".env" files have been set up, you can cd into your front-end folder and back-end folder from the terminal. Run "npm start" to start the application. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
@@ -53,13 +53,11 @@ This is the repository for the front-end. Please also use the repository for the
 
 7. Currently, the assistant has already been created. If you'd like to create a new assistant, you can specify different parameters inside the chatbot.js file that is inside the Routes folder for the back-end. See the file for further details.
 
-
-
 ### APIs
 
 The application uses OpenAI's assistants API and questions/answers taken from JSON files.
 - Data: The question bank data are sets of questions and multiple choices, saved in json files.
-- For the questions and answers, the front-end and back-end implements HTTP GET requests for Q/A retrieval. For the chatbot and user responses, the front-end implements HTTP POST requests to send queries and the back-end implements GET/POST requests, coupled with OpenAI's Node API Library and Assistants API. Parameters for the name, instructions and model were given when creating the AI assistant.  
+- For the questions and answers, the front-end and back-end implements HTTP GET requests for Q/A retrieval. For the chatbot and user responses, the front-end implements HTTP POST requests to send queries and the back-end implements GET/POST requests, coupled with OpenAI's Node API Library and Assistants API. Parameters for the name, instructions and model were given when creating the AI assistant. 
 
 ### Screenshots
 #### Login Page:

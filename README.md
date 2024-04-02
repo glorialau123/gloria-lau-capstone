@@ -48,7 +48,9 @@ This is the repository for the front-end. Please also use the repository for the
 4. Inside the back-end folder, create a ".env" file in the root directory. Inside the file, assign the PORT variable to the same port you specified for the front-end. For the OPENAI_API_KEY, you will need to assign your own API key here. A ".env-sample" file is provided for reference.
 5. If you don't have an API key with OpenAI, you can go to https://platform.openai.com/api-keys to create one. Please check if you have credit grants available to use: https://platform.openai.com/usage .
 6. Once both ".env" files have been set up, you can cd into your front-end folder and back-end folder from the terminal. Run "npm start" to start the application. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
 ![image](https://github.com/glorialau123/gloria-lau-capstone-client/assets/96962463/da6156e5-64fe-499d-98eb-6264aefc2b2c)
+
 7. Currently, the assistant has already been created. If you'd like to create a new assistant, you can specify different parameters inside the chatbot.js file that is inside the Routes folder for the back-end. See the file for further details.
 
 
@@ -96,8 +98,8 @@ The application uses OpenAI's assistants API and questions/answers taken from JS
 
 ## Lessons Learned and Next Steps
 
+This project has been an enriching journey, providing me with invaluable hands-on experience and a deeper understanding of the technologies employed. As I delved into integrating OpenAI's Assistant API, I encountered a learning curve that required thorough exploration of its documentation and experimentation with various endpoints. Despite the initial challenges, this process greatly expanded my proficiency and adaptability in working with third-party APIs.
 
-1. Local storage and authentication functionality so user doesn't lose progress.
-2. Animated backgrounds and characters to simulate an "instructor" as the chatbot
-3. Question bank for different topics/subject areas and difficulty level
-4. Teacher login and functionality so teachers can push their own questions for their classes
+Furthermore, what initially seemed like a straightforward task—developing a quiz—unfolded into a multifaceted endeavor. I discovered numerous intricacies and perspectives that hadn't crossed my mind at the beginning of the project. From managing question data to implementing effective feedback mechanisms and handling user interactions, each aspect required careful consideration and planning.   
+
+Moving forward, I'm excited to build upon this foundation and implement additional features to enhance the application further. Implementing user authentication will elevate the user experience, ensuring that users can resume their progress without losing data. Additionally, I would like to enable functionality for teachers such that they can personalize their classes through the integration of custom question sets. 

@@ -51,6 +51,17 @@ function QuestionPage() {
     getSingleQuestion();
   }, [questionId, topicName]);
 
+  //TODO reset correct answers when new topic
+  useEffect(() => {
+    if (!sessionStorage.getItem("correctAnswers")) {
+      sessionStorage.setItem("correctAnswers", 0);
+    }
+    const storedCorrectAnswers = sessionStorage.getItem("correctAnswers");
+    if (storedCorrectAnswers !== null) {
+      setCorrectQuestions(parseInt(storedCorrectAnswers));
+    }
+  }, [topicName]);
+
   //get thread id and pass to chatbot component
   useEffect(() => {
     const getThread = async function () {
@@ -72,7 +83,7 @@ function QuestionPage() {
   function handlePreviousQuestion() {
     if (questionId > 1) {
       const newQuestionId = questionId - 1;
-      navigate(`/topic/review/${newQuestionId}`);
+      navigate(`/topic/${topicName}/${newQuestionId}`);
       setIsOptionSelected(questionStatus[newQuestionId] === true);
     }
   }
@@ -100,6 +111,8 @@ function QuestionPage() {
       setIsOptionSelected(true);
       setCorrectQuestions((prevCorrectQuestions) => prevCorrectQuestions + 1);
       setPulseAnimation(true);
+      //TODO try session storage
+      sessionStorage.setItem("correctAnswers", correctQuestions + 1);
     } else if (option.isCorrect === false && !questionStatus[questionId]) {
       setQuestionStatus((previousStatus) => ({ ...previousStatus, [questionId]: true }));
       setSelectedOption(false);
@@ -133,7 +146,10 @@ function QuestionPage() {
               pulseAnimation ? "question-pg__current-score--animate" : ""
             }`}
           >
-            {correctQuestions}/10 correct
+            {/* TODO {correctQuestions}/10 correct */}
+            {sessionStorage.getItem("correctAnswers")} / 10
+            {/* TODO need to reset number of correct questions when done */}
+            {/* TODO need to remember which question number user was on if click into a topic and not done the problem set */}
           </p>
         </div>
 

@@ -72,7 +72,7 @@ function QuestionPage() {
   function handlePreviousQuestion() {
     if (questionId > 1) {
       const newQuestionId = questionId - 1;
-      navigate(`/topic/review/${newQuestionId}`);
+      navigate(`/topic/${topicName}/${newQuestionId}`);
       setIsOptionSelected(questionStatus[newQuestionId] === true);
     }
   }

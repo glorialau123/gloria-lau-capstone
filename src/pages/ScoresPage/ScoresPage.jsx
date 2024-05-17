@@ -32,7 +32,7 @@ function ScoresPage() {
           <img src={study} alt="cat studying" className="scores-pg__image" />
         </div>
       )}
-      <Link className="scores-pg__back" to="/selections">
+      <Link className="scores-pg__back" to="/">
         Back to Home
       </Link>
     </section>

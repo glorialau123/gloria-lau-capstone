@@ -14,7 +14,9 @@ function Chatbot(props) {
 
   //to reset chatbot messages when go to new question id
   useEffect(() => {
-    setMessage(null);
+    if (newChat || retrievedThreadId) {
+      setMessage(null);
+    }
   }, [newChat, retrievedThreadId]);
 
   useEffect(() => {
@@ -64,6 +66,14 @@ function Chatbot(props) {
       setIsLoading(false);
     }
   };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      getMessages(event);
+    }
+  };
+
   return (
     <section className="chatbot">
       <form className="chatbot__form" onSubmit={getMessages}>
@@ -96,6 +106,7 @@ function Chatbot(props) {
           placeholder="Click the 'Ask' button to get an explanation or start typing a question here"
           value={userInput}
           onChange={(event) => setUserInput(event.target.value)}
+          onKeyDown={handleKeyDown}
         />
         <div className="chatbot__button-container">
           <img src={mrfluff} alt="professor cat" className="chatbot__image" />

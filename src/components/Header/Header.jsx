@@ -12,9 +12,7 @@ function Header() {
         </div>
       </NavLink>
 
-      <div className="header__login">
-        <h1 className="header__name">Welcome user</h1>
-      </div>
+      <div className="header__login"></div>
     </header>
   );
 }
